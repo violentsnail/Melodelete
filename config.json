@@ -3,9 +3,9 @@
     "server_id": "<insert Serverid>",
     "channels": [
         {
-            "id": <numerical channel id>,
-            "time_threshold": <time in seconds>,
-            "max_messages": <number of mesages>
+            "id": 1,
+            "time_threshold": 1,
+            "max_messages": 1
         }
     ],
     "allowed_roles": [
