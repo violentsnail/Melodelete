@@ -3,6 +3,18 @@ import json
 import asyncio
 import os
 from datetime import datetime, timedelta, timezone
+import logging
+
+# Configure logging
+log_filename = "melodelete.log"
+log_filepath = os.path.join(os.path.dirname(os.path.realpath(__file__)), log_filename)
+
+logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s [%(levelname)s] %(message)s',
+                    handlers=[
+                        logging.FileHandler(log_filepath),
+                        logging.StreamHandler()
+                    ])
 
 # Function to load channels from the config.json file
 def load_channels():
@@ -41,6 +53,36 @@ intents = discord.Intents.default()
 intents.messages = True
 client = discord.Client(intents=intents)
 
+# Counts the total number of messages that need to be deleted for performance purposes.
+async def count_messages_to_delete():
+    CHANNELS = load_channels()
+    for channel_config in CHANNELS:
+        channel_id = channel_config["id"]
+        time_threshold = channel_config.get("time_threshold", None)
+        max_messages = channel_config.get("max_messages", None)
+
+        channel = client.get_channel(channel_id)
+        if channel:
+            try:
+                messages_to_delete = 0
+                all_messages = [message async for message in channel.history(limit=None)]
+
+                if time_threshold:
+                    threshold_time = datetime.now(timezone.utc) - timedelta(minutes=time_threshold)
+                    messages_to_delete += len([message for message in all_messages if message.created_at < threshold_time and not message.pinned])
+
+                if max_messages and len(all_messages) > max_messages:
+                    messages_to_delete += len(all_messages) - max_messages
+
+                print(f"Channel {channel.name} (ID: {channel_id}) has {messages_to_delete} messages to delete.")
+                #logging.info(f"Channel {channel.name} (ID: {channel_id}) has {messages_to_delete} messages to delete.")
+            except Exception as e:
+                print(f"Error in count_messages_to_delete for channel {channel.name} (ID: {channel_id}): {e}")
+                #logging.info(f"Error in count_messages_to_delete for channel {channel.name} (ID: {channel_id}): {e}")
+        else:
+            print(f"Channel not found: {channel_id}")
+
+
 # Function to delete old messages from the watched channels
 async def delete_old_messages():
     CHANNELS = load_channels()
@@ -58,7 +100,7 @@ async def delete_old_messages():
                     async for message in channel.history(limit=None):
                         if message.created_at < threshold_time and not message.pinned:
                             await message.delete()
-                            await asyncio.sleep(60)  # Delay to avoid rate limiting
+                            await asyncio.sleep(30)  # Delay to avoid rate limiting
                     # Additional sleep to ensure completion of time_threshold deletions
                     await asyncio.sleep(5)
 
@@ -67,7 +109,7 @@ async def delete_old_messages():
                     if len(messages) > max_messages:
                         for message in messages[max_messages:]:
                             await message.delete()
-                            await asyncio.sleep(60)  # Delay to avoid rate limiting
+                            await asyncio.sleep(30  )  # Delay to avoid rate limiting
             except Exception as e:
                 print(f"Error in delete_old_messages for channel {channel.name} (ID: {channel_id}): {e}")
         else:
@@ -75,8 +117,12 @@ async def delete_old_messages():
 
 @client.event
 async def on_ready():
-    print("Logged in as", client.user.name)
+    print(f"Logged in as {client.user.name}")
+    #logging.info(f"Logged in as {client.user.name}")
+    
+    await count_messages_to_delete()
     print("------")
+    #logging.info("------")
 
     # Call the delete_old_messages function on startup
     await delete_old_messages()
@@ -205,6 +251,7 @@ async def on_raw_message_delete(payload):
     if channel and payload.channel_id in [channel["id"] for channel in CHANNELS]:
         current_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
         print(f"[{current_time}] Message deleted in {channel.name} (ID: {payload.channel_id})")
+        #logging.info(f"Message deleted in {channel.name} (ID: {payload.channel_id})")
 
 # Run the bot
 client.run(TOKEN)
