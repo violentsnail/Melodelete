@@ -1,0 +1,770 @@
+2024-01-07 10:40:47,750 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-07 10:40:47,766 [INFO] logging in using static token
+2024-01-07 10:40:48,469 [INFO] Shard ID None has connected to Gateway (Session ID: a6c42d087def73e50cb153cf1d97c4be).
+2024-01-07 10:40:50,500 [INFO] Logged in as Panoptes
+2024-01-07 10:40:50,750 [INFO] Channel welcome-chat (ID: 713782034602000414) has 0 messages to delete.
+2024-01-07 10:40:52,266 [INFO] Channel nsfw-sexy-pics (ID: 481907877200527370) has 0 messages to delete.
+2024-01-07 10:40:52,453 [INFO] Channel test (ID: 1115021852021112984) has 0 messages to delete.
+2024-01-07 10:43:16,438 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-07 10:43:16,453 [INFO] logging in using static token
+2024-01-07 10:43:17,297 [INFO] Shard ID None has connected to Gateway (Session ID: bb2bdf68f13c9cb503232ecf8328a3d9).
+2024-01-07 11:08:50,594 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-07 11:08:50,594 [INFO] logging in using static token
+2024-01-07 11:08:51,422 [INFO] Shard ID None has connected to Gateway (Session ID: 3e3b710c4414f831fabfdd12a7eedcf0).
+2024-01-07 11:46:51,797 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-07 11:46:51,797 [INFO] logging in using static token
+2024-01-07 11:46:52,531 [INFO] Shard ID None has connected to Gateway (Session ID: e9ec36bd1862e45094740ce926c20029).
+2024-01-07 13:11:54,781 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-07 13:11:54,781 [INFO] logging in using static token
+2024-01-07 13:11:55,438 [INFO] Shard ID None has connected to Gateway (Session ID: f6c66e7ce608782ebf2baebd61a085ad).
+2024-01-07 13:24:04,438 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-07 13:24:04,438 [INFO] logging in using static token
+2024-01-07 13:24:05,156 [INFO] Shard ID None has connected to Gateway (Session ID: 60df4be350fa3a8e607a69921747aa9f).
+2024-01-07 13:49:48,875 [INFO] Shard ID None has successfully RESUMED session 60df4be350fa3a8e607a69921747aa9f.
+2024-01-07 14:36:00,735 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-07 14:36:00,735 [INFO] logging in using static token
+2024-01-07 14:36:01,547 [INFO] Shard ID None has connected to Gateway (Session ID: 923fd25407198c1fe980c1dad1528b45).
+2024-01-07 16:00:54,080 [INFO] Shard ID None has successfully RESUMED session 923fd25407198c1fe980c1dad1528b45.
+2024-01-07 18:42:35,679 [INFO] Shard ID None has successfully RESUMED session 923fd25407198c1fe980c1dad1528b45.
+2024-01-07 19:45:28,922 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-07 19:45:28,922 [INFO] logging in using static token
+2024-01-07 19:45:29,672 [INFO] Shard ID None has connected to Gateway (Session ID: 4953e0a742a7541f80866a07930559ca).
+2024-01-07 21:15:17,464 [INFO] Shard ID None has successfully RESUMED session 4953e0a742a7541f80866a07930559ca.
+2024-01-07 22:07:32,219 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-07 22:07:32,219 [INFO] logging in using static token
+2024-01-07 22:07:33,047 [INFO] Shard ID None has connected to Gateway (Session ID: 5a7deb34c140dff9eb77087089d08ea0).
+2024-01-07 22:51:37,891 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-07 22:51:37,891 [INFO] logging in using static token
+2024-01-07 22:51:38,672 [INFO] Shard ID None has connected to Gateway (Session ID: 58d8b5750f86ddad21ecc0bab3a58e1e).
+2024-01-07 22:55:35,719 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-07 22:55:35,735 [INFO] logging in using static token
+2024-01-07 22:55:36,485 [INFO] Shard ID None has connected to Gateway (Session ID: f668d11f0911367083771ddf1427ff16).
+2024-01-07 22:56:38,141 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-07 22:56:38,141 [INFO] logging in using static token
+2024-01-07 22:56:38,907 [INFO] Shard ID None has connected to Gateway (Session ID: 416b82ea648d229eb012d72f4eb5d4c7).
+2024-01-07 22:57:02,235 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-07 22:57:02,235 [INFO] logging in using static token
+2024-01-07 22:57:03,125 [INFO] Shard ID None has connected to Gateway (Session ID: 11fff248b497ff0c7a831176fd9ad17b).
+2024-01-08 02:25:59,873 [INFO] Shard ID None has successfully RESUMED session 11fff248b497ff0c7a831176fd9ad17b.
+2024-01-08 03:35:13,860 [INFO] Shard ID None has successfully RESUMED session 11fff248b497ff0c7a831176fd9ad17b.
+2024-01-08 07:06:48,493 [INFO] Shard ID None has successfully RESUMED session 11fff248b497ff0c7a831176fd9ad17b.
+2024-01-08 08:05:31,672 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-08 08:05:31,672 [INFO] logging in using static token
+2024-01-08 08:05:32,375 [INFO] Shard ID None has connected to Gateway (Session ID: 80a62586804803f18af0ac91d6c16828).
+2024-01-08 09:03:04,643 [INFO] Shard ID None has successfully RESUMED session 80a62586804803f18af0ac91d6c16828.
+2024-01-08 09:37:19,813 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-08 09:37:19,813 [INFO] logging in using static token
+2024-01-08 09:37:20,641 [INFO] Shard ID None has connected to Gateway (Session ID: 9a269c71b2898f044c8e04d7c82e0dfc).
+2024-01-08 10:05:46,138 [INFO] Shard ID None has successfully RESUMED session 9a269c71b2898f044c8e04d7c82e0dfc.
+2024-01-08 10:26:18,359 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-08 10:26:18,359 [INFO] logging in using static token
+2024-01-08 10:26:19,078 [INFO] Shard ID None has connected to Gateway (Session ID: ee21b83b70671974945248da0c3458e5).
+2024-01-08 10:38:55,906 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-08 10:38:55,906 [INFO] logging in using static token
+2024-01-08 10:38:56,609 [INFO] Shard ID None has connected to Gateway (Session ID: fe3b55671e0169b8c04d70457c769883).
+2024-01-08 10:44:59,875 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-08 10:44:59,875 [INFO] logging in using static token
+2024-01-08 10:45:00,609 [INFO] Shard ID None has connected to Gateway (Session ID: 829a866306cf410577b2bcf517033d78).
+2024-01-08 11:28:06,532 [INFO] Shard ID None has successfully RESUMED session 829a866306cf410577b2bcf517033d78.
+2024-01-08 13:48:52,407 [INFO] Shard ID None has successfully RESUMED session 829a866306cf410577b2bcf517033d78.
+2024-01-08 13:53:03,750 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-08 13:53:03,766 [INFO] logging in using static token
+2024-01-08 13:53:04,453 [INFO] Shard ID None has connected to Gateway (Session ID: 0dace4f62b517cde901d2b1e887f482b).
+2024-01-08 15:29:06,764 [INFO] Shard ID None has successfully RESUMED session 0dace4f62b517cde901d2b1e887f482b.
+2024-01-08 16:19:09,603 [INFO] Shard ID None has successfully RESUMED session 0dace4f62b517cde901d2b1e887f482b.
+2024-01-08 16:51:29,752 [INFO] Shard ID None has successfully RESUMED session 0dace4f62b517cde901d2b1e887f482b.
+2024-01-08 20:33:04,866 [INFO] Shard ID None has successfully RESUMED session 0dace4f62b517cde901d2b1e887f482b.
+2024-01-08 22:09:16,516 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-08 22:09:16,531 [INFO] logging in using static token
+2024-01-08 22:09:17,313 [INFO] Shard ID None has connected to Gateway (Session ID: e24de401787cb8e6290e55fb9567289d).
+2024-01-09 00:46:25,568 [INFO] Shard ID None has successfully RESUMED session e24de401787cb8e6290e55fb9567289d.
+2024-01-09 00:49:01,553 [INFO] Shard ID None has successfully RESUMED session e24de401787cb8e6290e55fb9567289d.
+2024-01-09 02:06:44,421 [INFO] Shard ID None has successfully RESUMED session e24de401787cb8e6290e55fb9567289d.
+2024-01-09 04:46:05,138 [INFO] Shard ID None has successfully RESUMED session e24de401787cb8e6290e55fb9567289d.
+2024-01-09 06:09:49,546 [INFO] Shard ID None has successfully RESUMED session e24de401787cb8e6290e55fb9567289d.
+2024-01-09 06:43:06,687 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-09 06:43:06,687 [INFO] logging in using static token
+2024-01-09 06:43:07,484 [INFO] Shard ID None has connected to Gateway (Session ID: 89f335913922963166b5b4988bfc2fba).
+2024-01-09 07:12:24,486 [INFO] Shard ID None has successfully RESUMED session 89f335913922963166b5b4988bfc2fba.
+2024-01-09 07:12:54,687 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-09 07:12:54,687 [INFO] logging in using static token
+2024-01-09 07:12:55,438 [INFO] Shard ID None has connected to Gateway (Session ID: df6a8cf190de0c233ab512313e0aaf78).
+2024-01-09 07:33:51,976 [INFO] Shard ID None has successfully RESUMED session df6a8cf190de0c233ab512313e0aaf78.
+2024-01-09 14:20:49,640 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-09 14:20:49,656 [INFO] logging in using static token
+2024-01-09 14:20:50,702 [INFO] Shard ID None has connected to Gateway (Session ID: 9d0e358fb1b89d36b0527fbedfead1a2).
+2024-01-09 14:43:39,766 [INFO] Shard ID None has successfully RESUMED session 9d0e358fb1b89d36b0527fbedfead1a2.
+2024-01-09 16:03:26,319 [INFO] Shard ID None has successfully RESUMED session 9d0e358fb1b89d36b0527fbedfead1a2.
+2024-01-09 22:37:43,156 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-09 22:37:43,156 [INFO] logging in using static token
+2024-01-09 22:37:43,922 [INFO] Shard ID None has connected to Gateway (Session ID: 6313445b4ac231fda6b6ba02a94b8ae4).
+2024-01-09 23:18:36,461 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-09 23:18:36,461 [INFO] logging in using static token
+2024-01-09 23:18:37,352 [INFO] Shard ID None has connected to Gateway (Session ID: 61bde7d2cc782644a13c29e6446161ec).
+2024-01-10 00:31:21,212 [INFO] Shard ID None has successfully RESUMED session 61bde7d2cc782644a13c29e6446161ec.
+2024-01-10 02:25:50,820 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-10 02:25:50,820 [INFO] logging in using static token
+2024-01-10 02:25:51,461 [INFO] Shard ID None has connected to Gateway (Session ID: 877b8264aa8a9b0178f2efb11d57fcb2).
+2024-01-10 03:08:14,016 [INFO] Shard ID None has successfully RESUMED session 877b8264aa8a9b0178f2efb11d57fcb2.
+2024-01-10 03:26:36,930 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-10 03:26:36,930 [INFO] logging in using static token
+2024-01-10 03:26:37,742 [INFO] Shard ID None has connected to Gateway (Session ID: ea956c4a56c257cb1497d665306adf98).
+2024-01-10 03:41:59,779 [INFO] Shard ID None has successfully RESUMED session ea956c4a56c257cb1497d665306adf98.
+2024-01-10 05:50:35,347 [INFO] Shard ID None has successfully RESUMED session ea956c4a56c257cb1497d665306adf98.
+2024-01-10 05:54:43,038 [INFO] Shard ID None has successfully RESUMED session ea956c4a56c257cb1497d665306adf98.
+2024-01-10 07:31:42,680 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-10 07:31:42,680 [INFO] logging in using static token
+2024-01-10 07:31:43,461 [INFO] Shard ID None has connected to Gateway (Session ID: 4c7332de3475d367512627f1a8fbc56d).
+2024-01-10 10:02:31,491 [INFO] Shard ID None has successfully RESUMED session 4c7332de3475d367512627f1a8fbc56d.
+2024-01-10 10:49:06,490 [INFO] Shard ID None has successfully RESUMED session 4c7332de3475d367512627f1a8fbc56d.
+2024-01-10 11:34:01,162 [INFO] Shard ID None has successfully RESUMED session 4c7332de3475d367512627f1a8fbc56d.
+2024-01-10 11:52:51,167 [INFO] Shard ID None has successfully RESUMED session 4c7332de3475d367512627f1a8fbc56d.
+2024-01-10 15:34:29,108 [INFO] Shard ID None has successfully RESUMED session 4c7332de3475d367512627f1a8fbc56d.
+2024-01-10 19:12:56,579 [INFO] Shard ID None has successfully RESUMED session 4c7332de3475d367512627f1a8fbc56d.
+2024-01-10 20:26:22,617 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-10 20:26:22,617 [INFO] logging in using static token
+2024-01-10 20:26:23,446 [INFO] Shard ID None has connected to Gateway (Session ID: f1a40d4f5459491c25a81ef37b7872e4).
+2024-01-10 20:57:32,429 [INFO] Shard ID None has successfully RESUMED session f1a40d4f5459491c25a81ef37b7872e4.
+2024-01-10 21:12:21,484 [INFO] Shard ID None has successfully RESUMED session f1a40d4f5459491c25a81ef37b7872e4.
+2024-01-10 21:34:43,472 [INFO] Shard ID None has successfully RESUMED session f1a40d4f5459491c25a81ef37b7872e4.
+2024-01-10 23:01:22,695 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-10 23:01:22,695 [INFO] logging in using static token
+2024-01-10 23:01:23,633 [INFO] Shard ID None has connected to Gateway (Session ID: 7e808652e4a2cc88e296c3e8f82cf35b).
+2024-01-11 01:13:10,114 [INFO] Shard ID None has successfully RESUMED session 7e808652e4a2cc88e296c3e8f82cf35b.
+2024-01-11 02:13:44,769 [INFO] Shard ID None has successfully RESUMED session 7e808652e4a2cc88e296c3e8f82cf35b.
+2024-01-11 02:18:32,021 [INFO] Shard ID None has successfully RESUMED session 7e808652e4a2cc88e296c3e8f82cf35b.
+2024-01-11 02:32:57,525 [INFO] Shard ID None has successfully RESUMED session 7e808652e4a2cc88e296c3e8f82cf35b.
+2024-01-11 05:06:13,070 [INFO] Shard ID None has successfully RESUMED session 7e808652e4a2cc88e296c3e8f82cf35b.
+2024-01-11 05:40:32,905 [INFO] Shard ID None has successfully RESUMED session 7e808652e4a2cc88e296c3e8f82cf35b.
+2024-01-11 06:09:46,822 [INFO] Shard ID None has successfully RESUMED session 7e808652e4a2cc88e296c3e8f82cf35b.
+2024-01-11 06:57:30,416 [INFO] Shard ID None has successfully RESUMED session 7e808652e4a2cc88e296c3e8f82cf35b.
+2024-01-11 06:58:17,914 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-11 06:58:17,921 [INFO] logging in using static token
+2024-01-11 06:58:18,711 [INFO] Shard ID None has connected to Gateway (Session ID: 96329b7ed1802987b998d34e1e2d75d3).
+2024-01-11 08:36:37,225 [INFO] Shard ID None has successfully RESUMED session 96329b7ed1802987b998d34e1e2d75d3.
+2024-01-11 09:09:08,913 [INFO] Shard ID None has successfully RESUMED session 96329b7ed1802987b998d34e1e2d75d3.
+2024-01-11 11:52:57,948 [INFO] Shard ID None has successfully RESUMED session 96329b7ed1802987b998d34e1e2d75d3.
+2024-01-11 13:39:25,930 [INFO] Shard ID None has successfully RESUMED session 96329b7ed1802987b998d34e1e2d75d3.
+2024-01-11 14:53:05,157 [INFO] Shard ID None has successfully RESUMED session 96329b7ed1802987b998d34e1e2d75d3.
+2024-01-11 15:06:15,651 [INFO] Shard ID None has successfully RESUMED session 96329b7ed1802987b998d34e1e2d75d3.
+2024-01-11 15:27:39,038 [INFO] Shard ID None has successfully RESUMED session 96329b7ed1802987b998d34e1e2d75d3.
+2024-01-11 16:20:16,805 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-11 16:20:16,805 [INFO] logging in using static token
+2024-01-11 16:20:17,570 [INFO] Shard ID None has connected to Gateway (Session ID: 629d86ee1a34a5442c89f1528e80a012).
+2024-01-11 17:23:56,646 [INFO] Shard ID None has successfully RESUMED session 629d86ee1a34a5442c89f1528e80a012.
+2024-01-11 17:44:23,064 [INFO] Shard ID None has successfully RESUMED session 629d86ee1a34a5442c89f1528e80a012.
+2024-01-11 18:44:49,864 [INFO] Shard ID None has successfully RESUMED session 629d86ee1a34a5442c89f1528e80a012.
+2024-01-11 18:50:29,087 [INFO] Shard ID None has successfully RESUMED session 629d86ee1a34a5442c89f1528e80a012.
+2024-01-11 19:08:38,822 [INFO] Shard ID None has successfully RESUMED session 629d86ee1a34a5442c89f1528e80a012.
+2024-01-11 19:25:26,598 [INFO] Shard ID None has successfully RESUMED session 629d86ee1a34a5442c89f1528e80a012.
+2024-01-11 21:38:10,472 [INFO] Shard ID None has successfully RESUMED session 629d86ee1a34a5442c89f1528e80a012.
+2024-01-11 22:26:13,617 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-11 22:26:13,617 [INFO] logging in using static token
+2024-01-11 22:26:14,461 [INFO] Shard ID None has connected to Gateway (Session ID: 443ce708948842d993319452508700b5).
+2024-01-12 01:42:48,766 [INFO] Shard ID None has successfully RESUMED session 443ce708948842d993319452508700b5.
+2024-01-12 03:14:43,226 [INFO] Shard ID None has successfully RESUMED session 443ce708948842d993319452508700b5.
+2024-01-12 03:39:10,770 [INFO] Shard ID None has successfully RESUMED session 443ce708948842d993319452508700b5.
+2024-01-12 04:26:01,960 [INFO] Shard ID None has successfully RESUMED session 443ce708948842d993319452508700b5.
+2024-01-12 05:20:24,414 [INFO] Shard ID None has successfully RESUMED session 443ce708948842d993319452508700b5.
+2024-01-12 07:28:11,008 [INFO] Shard ID None has successfully RESUMED session 443ce708948842d993319452508700b5.
+2024-01-12 08:40:41,306 [INFO] Shard ID None has successfully RESUMED session 443ce708948842d993319452508700b5.
+2024-01-12 09:14:48,301 [INFO] Shard ID None has successfully RESUMED session 443ce708948842d993319452508700b5.
+2024-01-12 10:13:16,879 [INFO] Shard ID None has successfully RESUMED session 443ce708948842d993319452508700b5.
+2024-01-12 11:14:11,592 [INFO] Shard ID None has successfully RESUMED session 443ce708948842d993319452508700b5.
+2024-01-12 11:27:08,110 [INFO] Shard ID None has successfully RESUMED session 443ce708948842d993319452508700b5.
+2024-01-12 11:46:59,278 [INFO] Shard ID None has successfully RESUMED session 443ce708948842d993319452508700b5.
+2024-01-12 12:14:34,102 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-12 12:14:34,102 [INFO] logging in using static token
+2024-01-12 12:14:35,133 [INFO] Shard ID None has connected to Gateway (Session ID: 43a0cba286304f5634c63deb9e3bf0ec).
+2024-01-12 13:31:23,948 [INFO] Shard ID None has successfully RESUMED session 43a0cba286304f5634c63deb9e3bf0ec.
+2024-01-12 14:06:16,744 [INFO] Shard ID None has successfully RESUMED session 43a0cba286304f5634c63deb9e3bf0ec.
+2024-01-12 14:40:50,385 [INFO] Shard ID None has successfully RESUMED session 43a0cba286304f5634c63deb9e3bf0ec.
+2024-01-12 16:22:20,485 [INFO] Shard ID None has successfully RESUMED session 43a0cba286304f5634c63deb9e3bf0ec.
+2024-01-12 19:09:05,762 [INFO] Shard ID None has successfully RESUMED session 43a0cba286304f5634c63deb9e3bf0ec.
+2024-01-12 20:15:02,135 [INFO] Shard ID None has successfully RESUMED session 43a0cba286304f5634c63deb9e3bf0ec.
+2024-01-12 21:01:47,617 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-12 21:01:47,617 [INFO] logging in using static token
+2024-01-12 21:01:48,367 [INFO] Shard ID None has connected to Gateway (Session ID: bad49e5aaa6053950c37cedf03abb8c9).
+2024-01-13 00:40:12,546 [INFO] Shard ID None has successfully RESUMED session bad49e5aaa6053950c37cedf03abb8c9.
+2024-01-13 02:20:01,294 [INFO] Shard ID None has successfully RESUMED session bad49e5aaa6053950c37cedf03abb8c9.
+2024-01-13 02:56:11,031 [INFO] Shard ID None has successfully RESUMED session bad49e5aaa6053950c37cedf03abb8c9.
+2024-01-13 06:44:35,920 [INFO] Shard ID None has successfully RESUMED session bad49e5aaa6053950c37cedf03abb8c9.
+2024-01-13 07:27:13,688 [INFO] Shard ID None has successfully RESUMED session bad49e5aaa6053950c37cedf03abb8c9.
+2024-01-13 09:45:05,582 [INFO] Shard ID None has successfully RESUMED session bad49e5aaa6053950c37cedf03abb8c9.
+2024-01-13 11:04:37,448 [INFO] Shard ID None has successfully RESUMED session bad49e5aaa6053950c37cedf03abb8c9.
+2024-01-13 12:34:06,425 [INFO] Shard ID None has successfully RESUMED session bad49e5aaa6053950c37cedf03abb8c9.
+2024-01-13 13:35:36,155 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-13 13:35:36,155 [INFO] logging in using static token
+2024-01-13 13:35:36,764 [INFO] Shard ID None has connected to Gateway (Session ID: 471232ddb7b8d9a5d43c215694f9b5a2).
+2024-01-13 13:51:19,222 [INFO] Shard ID None has successfully RESUMED session 471232ddb7b8d9a5d43c215694f9b5a2.
+2024-01-13 15:02:58,224 [INFO] Shard ID None has successfully RESUMED session 471232ddb7b8d9a5d43c215694f9b5a2.
+2024-01-13 15:46:50,237 [INFO] Shard ID None has successfully RESUMED session 471232ddb7b8d9a5d43c215694f9b5a2.
+2024-01-13 16:19:58,960 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-13 16:19:58,960 [INFO] logging in using static token
+2024-01-13 16:19:59,791 [INFO] Shard ID None has connected to Gateway (Session ID: 92d4b957c1a34ebec8851780a002a228).
+2024-01-13 18:18:40,072 [INFO] Shard ID None has successfully RESUMED session 92d4b957c1a34ebec8851780a002a228.
+2024-01-13 21:28:13,141 [INFO] Shard ID None has successfully RESUMED session 92d4b957c1a34ebec8851780a002a228.
+2024-01-13 23:20:46,041 [INFO] Shard ID None has successfully RESUMED session 92d4b957c1a34ebec8851780a002a228.
+2024-01-14 01:51:37,070 [INFO] Shard ID None has successfully RESUMED session 92d4b957c1a34ebec8851780a002a228.
+2024-01-14 04:25:36,410 [INFO] Shard ID None has successfully RESUMED session 92d4b957c1a34ebec8851780a002a228.
+2024-01-14 06:18:37,688 [INFO] Shard ID None has successfully RESUMED session 92d4b957c1a34ebec8851780a002a228.
+2024-01-14 06:51:29,145 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-14 06:51:29,150 [INFO] logging in using static token
+2024-01-14 06:51:30,122 [INFO] Shard ID None has connected to Gateway (Session ID: 08bb69d5caedb11dc2ed6509b60763ee).
+2024-01-14 10:50:36,409 [INFO] Shard ID None has successfully RESUMED session 08bb69d5caedb11dc2ed6509b60763ee.
+2024-01-14 13:42:28,396 [INFO] Shard ID None has successfully RESUMED session 08bb69d5caedb11dc2ed6509b60763ee.
+2024-01-14 15:57:14,571 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-14 15:57:14,571 [INFO] logging in using static token
+2024-01-14 15:57:15,281 [INFO] Shard ID None has connected to Gateway (Session ID: 749059769f4275059eab609d062ac8bd).
+2024-01-14 18:10:33,034 [INFO] Shard ID None has successfully RESUMED session 749059769f4275059eab609d062ac8bd.
+2024-01-14 19:18:42,960 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-14 19:18:42,960 [INFO] logging in using static token
+2024-01-14 19:18:43,727 [INFO] Shard ID None has connected to Gateway (Session ID: edbe788b9713eccf5bb6a5ef5007ba74).
+2024-01-14 19:47:53,600 [INFO] Shard ID None has successfully RESUMED session edbe788b9713eccf5bb6a5ef5007ba74.
+2024-01-14 20:22:32,111 [INFO] Shard ID None has successfully RESUMED session edbe788b9713eccf5bb6a5ef5007ba74.
+2024-01-15 10:00:33,084 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-15 10:00:33,084 [INFO] logging in using static token
+2024-01-15 10:00:33,985 [INFO] Shard ID None has connected to Gateway (Session ID: 0b265c576a132b91f4d0cd8f96b9704c).
+2024-01-15 11:16:13,859 [INFO] Shard ID None has successfully RESUMED session 0b265c576a132b91f4d0cd8f96b9704c.
+2024-01-15 12:20:45,406 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-15 12:20:45,408 [INFO] logging in using static token
+2024-01-15 12:20:46,228 [INFO] Shard ID None has connected to Gateway (Session ID: a83f89f66fd1cc91dc474d2ad17ff62c).
+2024-01-15 14:41:42,130 [INFO] Shard ID None has successfully RESUMED session a83f89f66fd1cc91dc474d2ad17ff62c.
+2024-01-15 17:59:14,582 [INFO] Shard ID None has successfully RESUMED session a83f89f66fd1cc91dc474d2ad17ff62c.
+2024-01-15 18:21:45,252 [INFO] Shard ID None has successfully RESUMED session a83f89f66fd1cc91dc474d2ad17ff62c.
+2024-01-15 20:24:30,445 [INFO] Shard ID None has successfully RESUMED session a83f89f66fd1cc91dc474d2ad17ff62c.
+2024-01-15 23:14:18,239 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-15 23:14:18,241 [INFO] logging in using static token
+2024-01-15 23:14:18,874 [INFO] Shard ID None has connected to Gateway (Session ID: bd7dc4752bf62aa53f9780c16efa4504).
+2024-01-16 01:51:51,743 [INFO] Shard ID None has successfully RESUMED session bd7dc4752bf62aa53f9780c16efa4504.
+2024-01-16 05:44:39,870 [INFO] Shard ID None has successfully RESUMED session bd7dc4752bf62aa53f9780c16efa4504.
+2024-01-16 09:37:52,767 [INFO] Shard ID None has successfully RESUMED session bd7dc4752bf62aa53f9780c16efa4504.
+2024-01-16 13:16:03,392 [INFO] Shard ID None has successfully RESUMED session bd7dc4752bf62aa53f9780c16efa4504.
+2024-01-16 15:17:02,736 [INFO] Shard ID None has successfully RESUMED session bd7dc4752bf62aa53f9780c16efa4504.
+2024-01-16 16:04:29,280 [INFO] Shard ID None has successfully RESUMED session bd7dc4752bf62aa53f9780c16efa4504.
+2024-01-16 16:21:49,840 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-16 16:21:49,841 [INFO] logging in using static token
+2024-01-16 16:21:50,499 [INFO] Shard ID None has connected to Gateway (Session ID: ada63b03f8f14d5709bbc41f87f8fd25).
+2024-01-16 16:58:29,220 [INFO] Shard ID None has successfully RESUMED session ada63b03f8f14d5709bbc41f87f8fd25.
+2024-01-16 18:58:25,652 [INFO] Shard ID None has successfully RESUMED session ada63b03f8f14d5709bbc41f87f8fd25.
+2024-01-16 20:20:13,025 [INFO] Shard ID None has successfully RESUMED session ada63b03f8f14d5709bbc41f87f8fd25.
+2024-01-16 20:37:41,364 [INFO] Shard ID None has successfully RESUMED session ada63b03f8f14d5709bbc41f87f8fd25.
+2024-01-16 23:27:00,861 [INFO] Shard ID None has successfully RESUMED session ada63b03f8f14d5709bbc41f87f8fd25.
+2024-01-17 00:12:06,360 [INFO] Shard ID None has successfully RESUMED session ada63b03f8f14d5709bbc41f87f8fd25.
+2024-01-17 02:23:22,087 [INFO] Shard ID None has successfully RESUMED session ada63b03f8f14d5709bbc41f87f8fd25.
+2024-01-17 02:52:55,991 [INFO] Shard ID None has successfully RESUMED session ada63b03f8f14d5709bbc41f87f8fd25.
+2024-01-17 04:46:13,217 [INFO] Shard ID None has successfully RESUMED session ada63b03f8f14d5709bbc41f87f8fd25.
+2024-01-17 07:52:44,078 [INFO] Shard ID None has successfully RESUMED session ada63b03f8f14d5709bbc41f87f8fd25.
+2024-01-17 10:49:32,363 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-17 10:49:32,364 [INFO] logging in using static token
+2024-01-17 10:49:33,115 [INFO] Shard ID None has connected to Gateway (Session ID: c2a0d42116d22d307f61c9df112395b5).
+2024-01-17 12:17:37,066 [INFO] Shard ID None has successfully RESUMED session c2a0d42116d22d307f61c9df112395b5.
+2024-01-17 13:24:56,579 [INFO] Shard ID None has successfully RESUMED session c2a0d42116d22d307f61c9df112395b5.
+2024-01-17 16:37:56,305 [INFO] Shard ID None has successfully RESUMED session c2a0d42116d22d307f61c9df112395b5.
+2024-01-17 17:54:19,559 [INFO] Shard ID None has successfully RESUMED session c2a0d42116d22d307f61c9df112395b5.
+2024-01-17 20:05:23,129 [INFO] Shard ID None has successfully RESUMED session c2a0d42116d22d307f61c9df112395b5.
+2024-01-17 20:53:41,877 [INFO] Shard ID None has successfully RESUMED session c2a0d42116d22d307f61c9df112395b5.
+2024-01-17 22:26:11,758 [INFO] Shard ID None has successfully RESUMED session c2a0d42116d22d307f61c9df112395b5.
+2024-01-17 23:05:32,252 [INFO] Shard ID None has successfully RESUMED session c2a0d42116d22d307f61c9df112395b5.
+2024-01-18 01:45:35,298 [INFO] Shard ID None has successfully RESUMED session c2a0d42116d22d307f61c9df112395b5.
+2024-01-18 03:36:08,164 [INFO] Shard ID None has successfully RESUMED session c2a0d42116d22d307f61c9df112395b5.
+2024-01-18 04:32:20,203 [INFO] Shard ID None has successfully RESUMED session c2a0d42116d22d307f61c9df112395b5.
+2024-01-18 06:40:22,126 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-18 06:40:22,128 [INFO] logging in using static token
+2024-01-18 06:40:22,916 [INFO] Shard ID None has connected to Gateway (Session ID: 10165cf42efd26b72500e01e78f629bc).
+2024-01-18 07:16:51,822 [INFO] Shard ID None has successfully RESUMED session 10165cf42efd26b72500e01e78f629bc.
+2024-01-18 10:19:42,079 [INFO] Shard ID None has successfully RESUMED session 10165cf42efd26b72500e01e78f629bc.
+2024-01-18 13:34:49,811 [INFO] Shard ID None has successfully RESUMED session 10165cf42efd26b72500e01e78f629bc.
+2024-01-18 14:17:39,804 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-18 14:17:39,804 [INFO] logging in using static token
+2024-01-18 14:17:40,730 [INFO] Shard ID None has connected to Gateway (Session ID: 96b13355ce12cb09516d6fc4d16cc49c).
+2024-01-18 17:54:28,117 [INFO] Shard ID None has successfully RESUMED session 96b13355ce12cb09516d6fc4d16cc49c.
+2024-01-20 12:05:11,542 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-20 12:05:11,562 [INFO] logging in using static token
+2024-01-20 12:05:12,507 [INFO] Shard ID None has connected to Gateway (Session ID: f5bf9cd410af791a9876fc1bd9a8adf1).
+2024-01-20 13:22:30,690 [INFO] Shard ID None has successfully RESUMED session f5bf9cd410af791a9876fc1bd9a8adf1.
+2024-01-20 13:51:34,737 [INFO] Shard ID None has successfully RESUMED session f5bf9cd410af791a9876fc1bd9a8adf1.
+2024-01-20 14:17:38,697 [INFO] Shard ID None has successfully RESUMED session f5bf9cd410af791a9876fc1bd9a8adf1.
+2024-01-20 15:49:42,410 [INFO] Shard ID None has successfully RESUMED session f5bf9cd410af791a9876fc1bd9a8adf1.
+2024-01-20 17:55:27,587 [INFO] Shard ID None has successfully RESUMED session f5bf9cd410af791a9876fc1bd9a8adf1.
+2024-01-20 18:25:47,343 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-20 18:25:47,345 [INFO] logging in using static token
+2024-01-20 18:25:48,070 [INFO] Shard ID None has connected to Gateway (Session ID: fd19ac0bee751f937ecb96a8bd6c09ec).
+2024-01-20 20:46:40,914 [INFO] Shard ID None has successfully RESUMED session fd19ac0bee751f937ecb96a8bd6c09ec.
+2024-01-20 22:58:24,991 [INFO] Shard ID None has successfully RESUMED session fd19ac0bee751f937ecb96a8bd6c09ec.
+2024-01-21 00:18:31,073 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-21 00:18:31,078 [INFO] logging in using static token
+2024-01-21 00:18:31,865 [INFO] Shard ID None has connected to Gateway (Session ID: f91a8de6747ba8255b5318228aace546).
+2024-01-21 02:23:34,307 [INFO] Shard ID None has successfully RESUMED session f91a8de6747ba8255b5318228aace546.
+2024-01-21 04:59:19,039 [INFO] Shard ID None has successfully RESUMED session f91a8de6747ba8255b5318228aace546.
+2024-01-21 08:47:11,066 [INFO] Shard ID None has successfully RESUMED session f91a8de6747ba8255b5318228aace546.
+2024-01-21 11:12:13,182 [INFO] Shard ID None has successfully RESUMED session f91a8de6747ba8255b5318228aace546.
+2024-01-21 13:35:23,377 [INFO] Shard ID None has successfully RESUMED session f91a8de6747ba8255b5318228aace546.
+2024-01-21 15:05:11,950 [INFO] Shard ID None has successfully RESUMED session f91a8de6747ba8255b5318228aace546.
+2024-01-21 18:07:53,534 [INFO] Shard ID None has successfully RESUMED session f91a8de6747ba8255b5318228aace546.
+2024-01-21 20:20:48,143 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-21 20:20:48,143 [INFO] logging in using static token
+2024-01-21 20:20:48,930 [INFO] Shard ID None has connected to Gateway (Session ID: 2a0f13b6975bde15ea0b731a4f6b63ef).
+2024-01-21 21:28:10,865 [INFO] Shard ID None has successfully RESUMED session 2a0f13b6975bde15ea0b731a4f6b63ef.
+2024-01-21 23:04:09,805 [INFO] Shard ID None has successfully RESUMED session 2a0f13b6975bde15ea0b731a4f6b63ef.
+2024-01-21 23:48:35,751 [INFO] Shard ID None has successfully RESUMED session 2a0f13b6975bde15ea0b731a4f6b63ef.
+2024-01-22 01:44:39,970 [INFO] Shard ID None has successfully RESUMED session 2a0f13b6975bde15ea0b731a4f6b63ef.
+2024-01-22 02:27:06,954 [INFO] Shard ID None has successfully RESUMED session 2a0f13b6975bde15ea0b731a4f6b63ef.
+2024-01-22 06:18:42,681 [INFO] Shard ID None has successfully RESUMED session 2a0f13b6975bde15ea0b731a4f6b63ef.
+2024-01-22 08:15:53,131 [INFO] Shard ID None has successfully RESUMED session 2a0f13b6975bde15ea0b731a4f6b63ef.
+2024-01-22 11:30:37,993 [INFO] Shard ID None has successfully RESUMED session 2a0f13b6975bde15ea0b731a4f6b63ef.
+2024-01-22 11:34:51,475 [INFO] Shard ID None has successfully RESUMED session 2a0f13b6975bde15ea0b731a4f6b63ef.
+2024-01-22 12:06:53,340 [INFO] Shard ID None has successfully RESUMED session 2a0f13b6975bde15ea0b731a4f6b63ef.
+2024-01-22 13:14:05,884 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-22 13:14:06,771 [INFO] logging in using static token
+2024-01-22 13:14:07,665 [INFO] Shard ID None has connected to Gateway (Session ID: c8ca8a0d159b3c63f1391c294512b615).
+2024-01-22 14:34:41,225 [INFO] Shard ID None has successfully RESUMED session c8ca8a0d159b3c63f1391c294512b615.
+2024-01-22 17:17:19,038 [INFO] Shard ID None has successfully RESUMED session c8ca8a0d159b3c63f1391c294512b615.
+2024-01-22 17:19:42,205 [INFO] Shard ID None has successfully RESUMED session c8ca8a0d159b3c63f1391c294512b615.
+2024-01-22 17:25:54,108 [INFO] Shard ID None has successfully RESUMED session c8ca8a0d159b3c63f1391c294512b615.
+2024-01-22 18:37:46,466 [INFO] Shard ID None has successfully RESUMED session c8ca8a0d159b3c63f1391c294512b615.
+2024-01-22 20:17:55,427 [INFO] Shard ID None has successfully RESUMED session c8ca8a0d159b3c63f1391c294512b615.
+2024-01-22 23:16:42,603 [INFO] Shard ID None has successfully RESUMED session c8ca8a0d159b3c63f1391c294512b615.
+2024-01-23 01:58:20,361 [INFO] Shard ID None has successfully RESUMED session c8ca8a0d159b3c63f1391c294512b615.
+2024-01-23 04:02:01,283 [INFO] Shard ID None has successfully RESUMED session c8ca8a0d159b3c63f1391c294512b615.
+2024-01-23 06:25:25,115 [INFO] Shard ID None has successfully RESUMED session c8ca8a0d159b3c63f1391c294512b615.
+2024-01-23 06:41:52,421 [INFO] Shard ID None has successfully RESUMED session c8ca8a0d159b3c63f1391c294512b615.
+2024-01-23 09:42:11,508 [INFO] Shard ID None has successfully RESUMED session c8ca8a0d159b3c63f1391c294512b615.
+2024-01-23 10:41:56,746 [INFO] Shard ID None has successfully RESUMED session c8ca8a0d159b3c63f1391c294512b615.
+2024-01-23 11:43:21,083 [INFO] Shard ID None has successfully RESUMED session c8ca8a0d159b3c63f1391c294512b615.
+2024-01-23 12:15:22,586 [INFO] Shard ID None has successfully RESUMED session c8ca8a0d159b3c63f1391c294512b615.
+2024-01-23 15:12:41,432 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-23 15:12:41,434 [INFO] logging in using static token
+2024-01-23 15:12:42,183 [INFO] Shard ID None has connected to Gateway (Session ID: 6a5d51c369981263046e49c7e498da42).
+2024-01-23 16:27:42,782 [INFO] Shard ID None has successfully RESUMED session 6a5d51c369981263046e49c7e498da42.
+2024-01-23 18:31:21,145 [INFO] Shard ID None has successfully RESUMED session 6a5d51c369981263046e49c7e498da42.
+2024-01-23 20:22:24,563 [INFO] Shard ID None has successfully RESUMED session 6a5d51c369981263046e49c7e498da42.
+2024-01-23 21:27:18,873 [INFO] Shard ID None has successfully RESUMED session 6a5d51c369981263046e49c7e498da42.
+2024-01-23 23:36:29,710 [INFO] Shard ID None has successfully RESUMED session 6a5d51c369981263046e49c7e498da42.
+2024-01-23 23:43:53,479 [INFO] Shard ID None has successfully RESUMED session 6a5d51c369981263046e49c7e498da42.
+2024-01-24 00:50:53,197 [INFO] Shard ID None has successfully RESUMED session 6a5d51c369981263046e49c7e498da42.
+2024-01-24 01:26:38,724 [INFO] Shard ID None has successfully RESUMED session 6a5d51c369981263046e49c7e498da42.
+2024-01-24 03:21:31,245 [INFO] Shard ID None has successfully RESUMED session 6a5d51c369981263046e49c7e498da42.
+2024-01-24 04:07:08,747 [INFO] Shard ID None has successfully RESUMED session 6a5d51c369981263046e49c7e498da42.
+2024-01-24 05:40:50,979 [INFO] Shard ID None has successfully RESUMED session 6a5d51c369981263046e49c7e498da42.
+2024-01-24 09:03:02,312 [INFO] Shard ID None has successfully RESUMED session 6a5d51c369981263046e49c7e498da42.
+2024-01-24 09:30:09,562 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-24 09:30:09,564 [INFO] logging in using static token
+2024-01-24 09:30:10,309 [INFO] Shard ID None has connected to Gateway (Session ID: 9c285bc5d3daffc8482b50bff8f8a43d).
+2024-01-24 10:30:16,461 [INFO] Shard ID None has successfully RESUMED session 9c285bc5d3daffc8482b50bff8f8a43d.
+2024-01-24 11:45:18,721 [INFO] Shard ID None has successfully RESUMED session 9c285bc5d3daffc8482b50bff8f8a43d.
+2024-01-24 13:02:03,311 [INFO] Shard ID None has successfully RESUMED session 9c285bc5d3daffc8482b50bff8f8a43d.
+2024-01-24 15:13:51,125 [INFO] Shard ID None has successfully RESUMED session 9c285bc5d3daffc8482b50bff8f8a43d.
+2024-01-24 16:43:52,353 [INFO] Shard ID None has successfully RESUMED session 9c285bc5d3daffc8482b50bff8f8a43d.
+2024-01-24 16:53:02,342 [INFO] Shard ID None has successfully RESUMED session 9c285bc5d3daffc8482b50bff8f8a43d.
+2024-01-24 17:01:00,538 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-24 17:01:00,539 [INFO] logging in using static token
+2024-01-24 17:01:01,509 [INFO] Shard ID None has connected to Gateway (Session ID: 322fe89dd4b834f5194a67b59b87a7ab).
+2024-01-24 18:35:02,045 [INFO] Shard ID None has successfully RESUMED session 322fe89dd4b834f5194a67b59b87a7ab.
+2024-01-24 19:13:34,802 [INFO] Shard ID None has successfully RESUMED session 322fe89dd4b834f5194a67b59b87a7ab.
+2024-01-24 19:57:15,956 [INFO] Shard ID None has successfully RESUMED session 322fe89dd4b834f5194a67b59b87a7ab.
+2024-01-24 23:51:58,512 [INFO] Shard ID None has successfully RESUMED session 322fe89dd4b834f5194a67b59b87a7ab.
+2024-01-25 01:00:42,132 [INFO] Shard ID None has successfully RESUMED session 322fe89dd4b834f5194a67b59b87a7ab.
+2024-01-25 01:53:50,516 [INFO] Shard ID None has successfully RESUMED session 322fe89dd4b834f5194a67b59b87a7ab.
+2024-01-25 02:22:08,407 [INFO] Shard ID None has successfully RESUMED session 322fe89dd4b834f5194a67b59b87a7ab.
+2024-01-25 02:56:15,722 [INFO] Shard ID None has successfully RESUMED session 322fe89dd4b834f5194a67b59b87a7ab.
+2024-01-25 03:16:19,816 [INFO] Shard ID None has successfully RESUMED session 322fe89dd4b834f5194a67b59b87a7ab.
+2024-01-25 03:32:33,848 [INFO] Shard ID None has successfully RESUMED session 322fe89dd4b834f5194a67b59b87a7ab.
+2024-01-25 04:24:09,819 [INFO] Shard ID None has successfully RESUMED session 322fe89dd4b834f5194a67b59b87a7ab.
+2024-01-25 04:27:40,947 [INFO] Shard ID None has successfully RESUMED session 322fe89dd4b834f5194a67b59b87a7ab.
+2024-01-25 05:52:58,580 [INFO] Shard ID None has successfully RESUMED session 322fe89dd4b834f5194a67b59b87a7ab.
+2024-01-25 07:03:21,403 [INFO] Shard ID None has successfully RESUMED session 322fe89dd4b834f5194a67b59b87a7ab.
+2024-01-25 08:51:26,688 [INFO] Shard ID None has successfully RESUMED session 322fe89dd4b834f5194a67b59b87a7ab.
+2024-01-25 10:33:41,314 [INFO] Shard ID None has successfully RESUMED session 322fe89dd4b834f5194a67b59b87a7ab.
+2024-01-25 10:46:39,207 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-25 10:46:39,209 [INFO] logging in using static token
+2024-01-25 10:46:40,087 [INFO] Shard ID None has connected to Gateway (Session ID: 4010a84c1df1856302f5ee79b7d2729b).
+2024-01-25 11:04:43,759 [INFO] Shard ID None has successfully RESUMED session 4010a84c1df1856302f5ee79b7d2729b.
+2024-01-25 12:20:43,736 [INFO] Shard ID None has successfully RESUMED session 4010a84c1df1856302f5ee79b7d2729b.
+2024-01-25 13:05:45,279 [INFO] Shard ID None has successfully RESUMED session 4010a84c1df1856302f5ee79b7d2729b.
+2024-01-25 14:33:30,361 [INFO] Shard ID None has successfully RESUMED session 4010a84c1df1856302f5ee79b7d2729b.
+2024-01-25 15:48:36,129 [INFO] Shard ID None has successfully RESUMED session 4010a84c1df1856302f5ee79b7d2729b.
+2024-01-25 18:10:37,017 [INFO] Shard ID None has successfully RESUMED session 4010a84c1df1856302f5ee79b7d2729b.
+2024-01-25 19:20:27,261 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-25 19:20:27,261 [INFO] logging in using static token
+2024-01-25 19:20:27,985 [INFO] Shard ID None has connected to Gateway (Session ID: f9e2c962f25b67ebe16550e5f21f69cd).
+2024-01-25 19:29:31,128 [INFO] Shard ID None has successfully RESUMED session f9e2c962f25b67ebe16550e5f21f69cd.
+2024-01-25 20:32:01,622 [INFO] Shard ID None has successfully RESUMED session f9e2c962f25b67ebe16550e5f21f69cd.
+2024-01-25 22:03:35,005 [INFO] Shard ID None has successfully RESUMED session f9e2c962f25b67ebe16550e5f21f69cd.
+2024-01-26 01:42:47,027 [INFO] Shard ID None has successfully RESUMED session f9e2c962f25b67ebe16550e5f21f69cd.
+2024-01-26 02:34:24,944 [INFO] Shard ID None has successfully RESUMED session f9e2c962f25b67ebe16550e5f21f69cd.
+2024-01-26 02:37:51,358 [INFO] Shard ID None has successfully RESUMED session f9e2c962f25b67ebe16550e5f21f69cd.
+2024-01-26 05:42:09,456 [INFO] Shard ID None has successfully RESUMED session f9e2c962f25b67ebe16550e5f21f69cd.
+2024-01-26 06:06:29,805 [INFO] Shard ID None has successfully RESUMED session f9e2c962f25b67ebe16550e5f21f69cd.
+2024-01-26 07:16:16,580 [INFO] Shard ID None has successfully RESUMED session f9e2c962f25b67ebe16550e5f21f69cd.
+2024-01-26 07:46:21,777 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-26 07:46:21,777 [INFO] logging in using static token
+2024-01-26 07:46:22,479 [INFO] Shard ID None has connected to Gateway (Session ID: 736564df6c8ab965cd515555ac870594).
+2024-01-26 08:23:54,900 [INFO] Shard ID None has successfully RESUMED session 736564df6c8ab965cd515555ac870594.
+2024-01-26 09:21:59,880 [INFO] Shard ID None has successfully RESUMED session 736564df6c8ab965cd515555ac870594.
+2024-01-26 09:22:51,706 [INFO] Shard ID None has successfully RESUMED session 736564df6c8ab965cd515555ac870594.
+2024-01-26 12:01:33,154 [INFO] Shard ID None has successfully RESUMED session 736564df6c8ab965cd515555ac870594.
+2024-01-26 13:28:01,802 [INFO] Shard ID None has successfully RESUMED session 736564df6c8ab965cd515555ac870594.
+2024-01-26 16:12:36,689 [INFO] Shard ID None has successfully RESUMED session 736564df6c8ab965cd515555ac870594.
+2024-01-26 17:59:41,338 [INFO] Shard ID None has successfully RESUMED session 736564df6c8ab965cd515555ac870594.
+2024-01-26 20:58:39,367 [INFO] Shard ID None has successfully RESUMED session 736564df6c8ab965cd515555ac870594.
+2024-01-26 22:13:09,617 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-26 22:13:09,617 [INFO] logging in using static token
+2024-01-26 22:13:10,423 [INFO] Shard ID None has connected to Gateway (Session ID: b9d02876bbf27cd745a676d3b4531399).
+2024-01-27 01:20:57,081 [INFO] Shard ID None has successfully RESUMED session b9d02876bbf27cd745a676d3b4531399.
+2024-01-27 02:51:12,732 [INFO] Shard ID None has successfully RESUMED session b9d02876bbf27cd745a676d3b4531399.
+2024-01-27 05:40:26,058 [INFO] Shard ID None has successfully RESUMED session b9d02876bbf27cd745a676d3b4531399.
+2024-01-27 08:00:20,578 [INFO] Shard ID None has successfully RESUMED session b9d02876bbf27cd745a676d3b4531399.
+2024-01-27 11:37:52,763 [INFO] Shard ID None has successfully RESUMED session b9d02876bbf27cd745a676d3b4531399.
+2024-01-27 12:47:21,004 [INFO] Shard ID None has successfully RESUMED session b9d02876bbf27cd745a676d3b4531399.
+2024-01-27 15:18:08,908 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-27 15:18:08,908 [INFO] logging in using static token
+2024-01-27 15:18:09,680 [INFO] Shard ID None has connected to Gateway (Session ID: 7b8e2de144468b20c56ada5285b2f93e).
+2024-01-27 16:13:02,416 [INFO] Shard ID None has successfully RESUMED session 7b8e2de144468b20c56ada5285b2f93e.
+2024-01-27 19:53:29,608 [INFO] Shard ID None has successfully RESUMED session 7b8e2de144468b20c56ada5285b2f93e.
+2024-01-27 23:15:20,088 [INFO] Shard ID None has successfully RESUMED session 7b8e2de144468b20c56ada5285b2f93e.
+2024-01-28 01:48:31,164 [INFO] Shard ID None has successfully RESUMED session 7b8e2de144468b20c56ada5285b2f93e.
+2024-01-28 04:48:26,187 [INFO] Shard ID None has successfully RESUMED session 7b8e2de144468b20c56ada5285b2f93e.
+2024-01-28 05:32:29,511 [INFO] Shard ID None has successfully RESUMED session 7b8e2de144468b20c56ada5285b2f93e.
+2024-01-28 06:33:02,162 [INFO] Shard ID None has successfully RESUMED session 7b8e2de144468b20c56ada5285b2f93e.
+2024-01-28 09:54:32,609 [INFO] Shard ID None has successfully RESUMED session 7b8e2de144468b20c56ada5285b2f93e.
+2024-01-28 11:02:33,914 [INFO] Shard ID None has successfully RESUMED session 7b8e2de144468b20c56ada5285b2f93e.
+2024-01-28 12:11:14,303 [INFO] Shard ID None has successfully RESUMED session 7b8e2de144468b20c56ada5285b2f93e.
+2024-01-28 14:26:55,405 [INFO] Shard ID None has successfully RESUMED session 7b8e2de144468b20c56ada5285b2f93e.
+2024-01-28 16:13:38,378 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-28 16:13:38,380 [INFO] logging in using static token
+2024-01-28 16:13:39,072 [INFO] Shard ID None has connected to Gateway (Session ID: 06cc5316c9ceecf6328437626bc8d63d).
+2024-01-28 20:04:51,562 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-28 23:57:30,542 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-29 02:09:11,348 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-29 03:09:17,268 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-29 06:33:59,216 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-29 10:06:52,182 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-29 13:20:21,881 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-29 13:47:29,485 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-29 16:44:54,023 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-29 16:48:55,952 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-29 16:53:37,012 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-29 17:24:58,617 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-29 18:05:59,843 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-29 18:08:01,676 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-29 18:31:05,154 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-29 19:35:18,515 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-29 21:19:01,825 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-29 23:24:53,772 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-29 23:42:05,355 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-30 00:40:01,303 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-30 01:30:06,762 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-30 02:24:53,291 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-30 04:12:35,016 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-30 07:52:29,982 [INFO] Shard ID None has successfully RESUMED session 06cc5316c9ceecf6328437626bc8d63d.
+2024-01-30 07:54:40,176 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-30 07:54:40,181 [INFO] logging in using static token
+2024-01-30 07:54:40,879 [INFO] Shard ID None has connected to Gateway (Session ID: b327088e03dcffda57f5ef8eab56bd90).
+2024-01-30 08:34:21,034 [INFO] Shard ID None has successfully RESUMED session b327088e03dcffda57f5ef8eab56bd90.
+2024-01-30 12:24:01,071 [INFO] Shard ID None has successfully RESUMED session b327088e03dcffda57f5ef8eab56bd90.
+2024-01-30 16:04:36,798 [INFO] Shard ID None has successfully RESUMED session b327088e03dcffda57f5ef8eab56bd90.
+2024-01-30 17:06:31,551 [INFO] Shard ID None has successfully RESUMED session b327088e03dcffda57f5ef8eab56bd90.
+2024-01-30 18:11:12,924 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-30 18:11:12,926 [INFO] logging in using static token
+2024-01-30 18:11:13,889 [INFO] Shard ID None has connected to Gateway (Session ID: c517b67ad46962a74b6d8503003517d1).
+2024-01-30 20:22:06,483 [INFO] Shard ID None has successfully RESUMED session c517b67ad46962a74b6d8503003517d1.
+2024-01-30 21:08:33,698 [INFO] Shard ID None has successfully RESUMED session c517b67ad46962a74b6d8503003517d1.
+2024-01-30 22:13:56,585 [INFO] Shard ID None has successfully RESUMED session c517b67ad46962a74b6d8503003517d1.
+2024-01-30 23:49:55,842 [INFO] Shard ID None has successfully RESUMED session c517b67ad46962a74b6d8503003517d1.
+2024-01-31 00:12:15,996 [INFO] Shard ID None has successfully RESUMED session c517b67ad46962a74b6d8503003517d1.
+2024-01-31 00:23:19,852 [INFO] Shard ID None has successfully RESUMED session c517b67ad46962a74b6d8503003517d1.
+2024-01-31 03:18:53,095 [INFO] Shard ID None has successfully RESUMED session c517b67ad46962a74b6d8503003517d1.
+2024-01-31 04:41:16,908 [INFO] Shard ID None has successfully RESUMED session c517b67ad46962a74b6d8503003517d1.
+2024-01-31 06:41:15,459 [INFO] Shard ID None has successfully RESUMED session c517b67ad46962a74b6d8503003517d1.
+2024-01-31 08:23:48,275 [INFO] Shard ID None has successfully RESUMED session c517b67ad46962a74b6d8503003517d1.
+2024-01-31 11:17:32,721 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-01-31 11:17:32,726 [INFO] logging in using static token
+2024-01-31 11:17:33,667 [INFO] Shard ID None has connected to Gateway (Session ID: d9b770403ebd65aa3f30f339e7532b4d).
+2024-01-31 11:30:48,614 [INFO] Shard ID None has successfully RESUMED session d9b770403ebd65aa3f30f339e7532b4d.
+2024-01-31 12:34:01,453 [INFO] Shard ID None has successfully RESUMED session d9b770403ebd65aa3f30f339e7532b4d.
+2024-01-31 15:00:29,488 [INFO] Shard ID None has successfully RESUMED session d9b770403ebd65aa3f30f339e7532b4d.
+2024-01-31 16:09:20,649 [INFO] Shard ID None has successfully RESUMED session d9b770403ebd65aa3f30f339e7532b4d.
+2024-01-31 17:50:47,397 [INFO] Shard ID None has successfully RESUMED session d9b770403ebd65aa3f30f339e7532b4d.
+2024-01-31 19:46:40,114 [INFO] Shard ID None has successfully RESUMED session d9b770403ebd65aa3f30f339e7532b4d.
+2024-01-31 23:06:37,529 [INFO] Shard ID None has successfully RESUMED session d9b770403ebd65aa3f30f339e7532b4d.
+2024-02-01 00:53:36,832 [INFO] Shard ID None has successfully RESUMED session d9b770403ebd65aa3f30f339e7532b4d.
+2024-02-01 00:57:01,319 [INFO] Shard ID None has successfully RESUMED session d9b770403ebd65aa3f30f339e7532b4d.
+2024-02-01 01:50:16,050 [INFO] Shard ID None has successfully RESUMED session d9b770403ebd65aa3f30f339e7532b4d.
+2024-02-01 03:37:36,709 [INFO] Shard ID None has successfully RESUMED session d9b770403ebd65aa3f30f339e7532b4d.
+2024-02-01 06:10:11,057 [INFO] Shard ID None has successfully RESUMED session d9b770403ebd65aa3f30f339e7532b4d.
+2024-02-01 06:22:44,086 [INFO] Shard ID None has successfully RESUMED session d9b770403ebd65aa3f30f339e7532b4d.
+2024-02-01 08:31:14,882 [INFO] Shard ID None has successfully RESUMED session d9b770403ebd65aa3f30f339e7532b4d.
+2024-02-01 10:52:14,032 [INFO] Shard ID None has successfully RESUMED session d9b770403ebd65aa3f30f339e7532b4d.
+2024-02-01 11:14:34,692 [WARNING] Can't keep up, shard ID None websocket is 20.5s behind.
+2024-02-01 12:18:01,018 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-02-01 12:18:01,018 [INFO] logging in using static token
+2024-02-01 12:18:01,921 [INFO] Shard ID None has connected to Gateway (Session ID: a57a67387f13970eea6a07a4194f0619).
+2024-02-01 13:10:18,775 [INFO] Shard ID None has successfully RESUMED session a57a67387f13970eea6a07a4194f0619.
+2024-02-01 14:28:31,126 [INFO] Shard ID None has successfully RESUMED session a57a67387f13970eea6a07a4194f0619.
+2024-02-01 15:20:29,469 [INFO] Shard ID None has successfully RESUMED session a57a67387f13970eea6a07a4194f0619.
+2024-02-01 15:32:30,152 [INFO] Shard ID None has successfully RESUMED session a57a67387f13970eea6a07a4194f0619.
+2024-02-01 15:32:57,941 [INFO] Shard ID None has successfully RESUMED session a57a67387f13970eea6a07a4194f0619.
+2024-02-01 15:48:28,457 [INFO] Shard ID None has successfully RESUMED session a57a67387f13970eea6a07a4194f0619.
+2024-02-01 16:06:26,263 [INFO] Shard ID None has successfully RESUMED session a57a67387f13970eea6a07a4194f0619.
+2024-02-01 18:08:06,642 [INFO] Shard ID None has successfully RESUMED session a57a67387f13970eea6a07a4194f0619.
+2024-02-01 19:53:53,104 [INFO] Shard ID None has successfully RESUMED session a57a67387f13970eea6a07a4194f0619.
+2024-02-01 21:40:44,106 [INFO] Shard ID None has successfully RESUMED session a57a67387f13970eea6a07a4194f0619.
+2024-02-01 23:22:48,202 [INFO] Shard ID None has successfully RESUMED session a57a67387f13970eea6a07a4194f0619.
+2024-02-02 03:02:50,835 [INFO] Shard ID None has successfully RESUMED session a57a67387f13970eea6a07a4194f0619.
+2024-02-02 04:28:30,251 [INFO] Shard ID None has successfully RESUMED session a57a67387f13970eea6a07a4194f0619.
+2024-02-02 05:37:20,043 [INFO] Shard ID None has successfully RESUMED session a57a67387f13970eea6a07a4194f0619.
+2024-02-02 07:11:57,655 [INFO] Shard ID None has successfully RESUMED session a57a67387f13970eea6a07a4194f0619.
+2024-02-02 07:50:04,291 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-02-02 07:50:04,291 [INFO] logging in using static token
+2024-02-02 07:50:05,048 [INFO] Shard ID None has connected to Gateway (Session ID: 4716e9b54875158f194f347a63de197d).
+2024-02-02 10:34:26,909 [INFO] Shard ID None has successfully RESUMED session 4716e9b54875158f194f347a63de197d.
+2024-02-02 11:50:27,558 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-02-02 11:50:27,559 [INFO] logging in using static token
+2024-02-02 11:50:28,340 [INFO] Shard ID None has connected to Gateway (Session ID: 440a68873dd70a74e120884923b161f8).
+2024-02-02 12:50:08,426 [INFO] Shard ID None has successfully RESUMED session 440a68873dd70a74e120884923b161f8.
+2024-02-02 13:42:55,347 [INFO] Shard ID None has successfully RESUMED session 440a68873dd70a74e120884923b161f8.
+2024-02-02 13:46:35,222 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-02-02 13:46:35,224 [INFO] logging in using static token
+2024-02-02 13:46:36,109 [INFO] Shard ID None has connected to Gateway (Session ID: f7403f2aef388bfdc296bf1475430903).
+2024-02-02 15:09:09,834 [INFO] Shard ID None has successfully RESUMED session f7403f2aef388bfdc296bf1475430903.
+2024-02-02 18:54:59,541 [INFO] Shard ID None has successfully RESUMED session f7403f2aef388bfdc296bf1475430903.
+2024-02-02 19:46:57,710 [INFO] Shard ID None has successfully RESUMED session f7403f2aef388bfdc296bf1475430903.
+2024-02-02 21:56:58,034 [INFO] Shard ID None has successfully RESUMED session f7403f2aef388bfdc296bf1475430903.
+2024-02-03 01:31:18,579 [INFO] Shard ID None has successfully RESUMED session f7403f2aef388bfdc296bf1475430903.
+2024-02-03 03:37:18,685 [INFO] Shard ID None has successfully RESUMED session f7403f2aef388bfdc296bf1475430903.
+2024-02-03 06:12:20,979 [INFO] Shard ID None has successfully RESUMED session f7403f2aef388bfdc296bf1475430903.
+2024-02-03 08:54:42,005 [INFO] Shard ID None has successfully RESUMED session f7403f2aef388bfdc296bf1475430903.
+2024-02-03 09:33:39,567 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-02-03 09:33:39,569 [INFO] logging in using static token
+2024-02-03 09:33:40,362 [INFO] Shard ID None has connected to Gateway (Session ID: 002beefae4f308d4798fe50236a02b0e).
+2024-02-03 11:21:41,243 [INFO] Shard ID None has successfully RESUMED session 002beefae4f308d4798fe50236a02b0e.
+2024-02-03 13:13:06,701 [ERROR] Attempting a reconnect in 0.64s
+Traceback (most recent call last):
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\connector.py", line 980, in _wrap_create_connection
+    return await self._loop.create_connection(*args, **kwargs)  # type: ignore[return-value]  # noqa
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 1085, in create_connection
+    raise exceptions[0]
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 1069, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 973, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\asyncio\proactor_events.py", line 726, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\asyncio\windows_events.py", line 846, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\asyncio\windows_events.py", line 633, in finish_connect
+    ov.getresult()
+OSError: [WinError 121] The semaphore timeout period has expired
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\site-packages\discord\client.py", line 656, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\asyncio\tasks.py", line 479, in wait_for
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\site-packages\discord\gateway.py", line 372, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\site-packages\discord\http.py", line 537, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\client.py", line 779, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\client.py", line 536, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\connector.py", line 540, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\connector.py", line 901, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\connector.py", line 1209, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\connector.py", line 1178, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\connector.py", line 988, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [The semaphore timeout period has expired]
+2024-02-03 13:13:28,653 [ERROR] Attempting a reconnect in 3.79s
+Traceback (most recent call last):
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\connector.py", line 980, in _wrap_create_connection
+    return await self._loop.create_connection(*args, **kwargs)  # type: ignore[return-value]  # noqa
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 1085, in create_connection
+    raise exceptions[0]
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 1069, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 973, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\asyncio\proactor_events.py", line 726, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\asyncio\windows_events.py", line 846, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\asyncio\windows_events.py", line 633, in finish_connect
+    ov.getresult()
+OSError: [WinError 121] The semaphore timeout period has expired
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\site-packages\discord\client.py", line 656, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\asyncio\tasks.py", line 479, in wait_for
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\site-packages\discord\gateway.py", line 372, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\site-packages\discord\http.py", line 537, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\client.py", line 779, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\client.py", line 536, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\connector.py", line 540, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\connector.py", line 901, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\connector.py", line 1209, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\connector.py", line 1178, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ITSVCH\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\connector.py", line 988, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [The semaphore timeout period has expired]
+2024-02-03 13:13:32,746 [INFO] Shard ID None has successfully RESUMED session 002beefae4f308d4798fe50236a02b0e.
+2024-02-03 13:46:15,100 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-02-03 13:46:15,100 [INFO] logging in using static token
+2024-02-03 13:46:15,991 [INFO] Shard ID None has connected to Gateway (Session ID: d9d0615541082bd3562f2fd4db6175fc).
+2024-02-03 15:58:32,574 [INFO] Shard ID None has successfully RESUMED session d9d0615541082bd3562f2fd4db6175fc.
+2024-02-03 18:10:30,218 [INFO] Shard ID None has successfully RESUMED session d9d0615541082bd3562f2fd4db6175fc.
+2024-02-03 20:57:49,274 [INFO] Shard ID None has successfully RESUMED session d9d0615541082bd3562f2fd4db6175fc.
+2024-02-03 23:12:35,706 [INFO] Shard ID None has successfully RESUMED session d9d0615541082bd3562f2fd4db6175fc.
+2024-02-03 23:34:21,109 [INFO] Shard ID None has successfully RESUMED session d9d0615541082bd3562f2fd4db6175fc.
+2024-02-03 23:50:33,727 [INFO] Shard ID None has successfully RESUMED session d9d0615541082bd3562f2fd4db6175fc.
+2024-02-04 01:30:28,237 [INFO] Shard ID None has successfully RESUMED session d9d0615541082bd3562f2fd4db6175fc.
+2024-02-04 03:09:27,273 [INFO] Shard ID None has successfully RESUMED session d9d0615541082bd3562f2fd4db6175fc.
+2024-02-04 06:29:14,536 [INFO] Shard ID None has successfully RESUMED session d9d0615541082bd3562f2fd4db6175fc.
+2024-02-04 08:21:30,318 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-02-04 08:21:30,318 [INFO] logging in using static token
+2024-02-04 08:21:31,209 [INFO] Shard ID None has connected to Gateway (Session ID: e056145d25f6247e5855978f303bda18).
+2024-02-04 09:03:24,776 [INFO] Shard ID None has successfully RESUMED session e056145d25f6247e5855978f303bda18.
+2024-02-04 11:00:26,356 [INFO] Shard ID None has successfully RESUMED session e056145d25f6247e5855978f303bda18.
+2024-02-04 12:56:18,808 [INFO] Shard ID None has successfully RESUMED session e056145d25f6247e5855978f303bda18.
+2024-02-04 14:12:36,797 [INFO] Shard ID None has successfully RESUMED session e056145d25f6247e5855978f303bda18.
+2024-02-04 17:02:09,425 [INFO] Shard ID None has successfully RESUMED session e056145d25f6247e5855978f303bda18.
+2024-02-04 20:37:27,491 [INFO] Shard ID None has successfully RESUMED session e056145d25f6247e5855978f303bda18.
+2024-02-04 23:51:36,331 [INFO] Shard ID None has successfully RESUMED session e056145d25f6247e5855978f303bda18.
+2024-02-05 03:01:20,883 [INFO] Shard ID None has successfully RESUMED session e056145d25f6247e5855978f303bda18.
+2024-02-05 04:14:20,031 [INFO] Shard ID None has successfully RESUMED session e056145d25f6247e5855978f303bda18.
+2024-02-05 05:03:04,605 [INFO] Shard ID None has successfully RESUMED session e056145d25f6247e5855978f303bda18.
+2024-02-05 05:27:29,601 [INFO] Shard ID None has successfully RESUMED session e056145d25f6247e5855978f303bda18.
+2024-02-05 05:40:37,240 [INFO] Shard ID None has successfully RESUMED session e056145d25f6247e5855978f303bda18.
+2024-02-05 08:20:00,710 [INFO] Shard ID None has successfully RESUMED session e056145d25f6247e5855978f303bda18.
+2024-02-05 10:40:10,787 [INFO] Shard ID None has successfully RESUMED session e056145d25f6247e5855978f303bda18.
+2024-02-05 11:01:23,572 [INFO] Shard ID None has successfully RESUMED session e056145d25f6247e5855978f303bda18.
+2024-02-05 11:08:06,515 [INFO] Shard ID None has successfully RESUMED session e056145d25f6247e5855978f303bda18.
+2024-02-05 11:32:48,600 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-02-05 11:32:48,600 [INFO] logging in using static token
+2024-02-05 11:32:49,443 [INFO] Shard ID None has connected to Gateway (Session ID: 66c3c160c3704b01636482f9575be647).
+2024-02-05 15:31:59,080 [INFO] Shard ID None has successfully RESUMED session 66c3c160c3704b01636482f9575be647.
+2024-02-05 16:03:01,936 [INFO] Shard ID None has successfully RESUMED session 66c3c160c3704b01636482f9575be647.
+2024-02-05 16:46:23,589 [INFO] Shard ID None has successfully RESUMED session 66c3c160c3704b01636482f9575be647.
+2024-02-05 17:13:27,120 [INFO] Shard ID None has successfully RESUMED session 66c3c160c3704b01636482f9575be647.
+2024-02-05 18:56:21,720 [INFO] Shard ID None has successfully RESUMED session 66c3c160c3704b01636482f9575be647.
+2024-02-05 22:37:12,172 [INFO] Shard ID None has successfully RESUMED session 66c3c160c3704b01636482f9575be647.
+2024-02-06 01:26:34,886 [INFO] Shard ID None has successfully RESUMED session 66c3c160c3704b01636482f9575be647.
+2024-02-06 02:39:16,656 [INFO] Shard ID None has successfully RESUMED session 66c3c160c3704b01636482f9575be647.
+2024-02-06 06:32:13,577 [INFO] Shard ID None has successfully RESUMED session 66c3c160c3704b01636482f9575be647.
+2024-02-06 08:56:25,641 [INFO] Shard ID None has successfully RESUMED session 66c3c160c3704b01636482f9575be647.
+2024-02-06 09:11:20,376 [INFO] Shard ID None has successfully RESUMED session 66c3c160c3704b01636482f9575be647.
+2024-02-06 09:36:34,038 [INFO] Shard ID None has successfully RESUMED session 66c3c160c3704b01636482f9575be647.
+2024-02-06 10:30:30,291 [INFO] Shard ID None has successfully RESUMED session 66c3c160c3704b01636482f9575be647.
+2024-02-06 12:22:11,498 [INFO] Shard ID None has successfully RESUMED session 66c3c160c3704b01636482f9575be647.
+2024-02-06 12:40:56,092 [INFO] Shard ID None has successfully RESUMED session 66c3c160c3704b01636482f9575be647.
+2024-02-06 13:30:10,743 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-02-06 13:30:10,743 [INFO] logging in using static token
+2024-02-06 13:30:11,618 [INFO] Shard ID None has connected to Gateway (Session ID: 00b89b3779a28d163b27ef49bfd2c73e).
+2024-02-06 15:55:34,779 [INFO] Shard ID None has successfully RESUMED session 00b89b3779a28d163b27ef49bfd2c73e.
+2024-02-06 16:15:07,557 [INFO] Shard ID None has successfully RESUMED session 00b89b3779a28d163b27ef49bfd2c73e.
+2024-02-06 17:30:34,713 [INFO] Shard ID None has successfully RESUMED session 00b89b3779a28d163b27ef49bfd2c73e.
+2024-02-06 20:43:41,234 [INFO] Shard ID None has successfully RESUMED session 00b89b3779a28d163b27ef49bfd2c73e.
+2024-02-06 22:37:29,745 [INFO] Shard ID None has successfully RESUMED session 00b89b3779a28d163b27ef49bfd2c73e.
+2024-02-07 01:20:49,236 [INFO] Shard ID None has successfully RESUMED session 00b89b3779a28d163b27ef49bfd2c73e.
+2024-02-07 04:05:43,484 [INFO] Shard ID None has successfully RESUMED session 00b89b3779a28d163b27ef49bfd2c73e.
+2024-02-07 04:38:30,203 [INFO] Shard ID None has successfully RESUMED session 00b89b3779a28d163b27ef49bfd2c73e.
+2024-02-07 05:56:58,898 [INFO] Shard ID None has successfully RESUMED session 00b89b3779a28d163b27ef49bfd2c73e.
+2024-02-07 07:35:08,012 [INFO] Shard ID None has successfully RESUMED session 00b89b3779a28d163b27ef49bfd2c73e.
+2024-02-07 07:59:04,747 [INFO] Shard ID None has successfully RESUMED session 00b89b3779a28d163b27ef49bfd2c73e.
+2024-02-07 09:21:07,737 [INFO] Shard ID None has successfully RESUMED session 00b89b3779a28d163b27ef49bfd2c73e.
+2024-02-07 12:38:49,020 [INFO] Shard ID None has successfully RESUMED session 00b89b3779a28d163b27ef49bfd2c73e.
+2024-02-07 14:40:42,873 [INFO] Shard ID None has successfully RESUMED session 00b89b3779a28d163b27ef49bfd2c73e.
+2024-02-07 15:12:43,758 [INFO] Shard ID None has successfully RESUMED session 00b89b3779a28d163b27ef49bfd2c73e.
+2024-02-07 16:27:33,650 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-02-07 16:27:33,650 [INFO] logging in using static token
+2024-02-07 16:27:34,431 [INFO] Shard ID None has connected to Gateway (Session ID: 4767f21a7cb1e8ef539275ce3c539c9f).
+2024-02-07 19:19:51,266 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-07 22:42:19,737 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-07 23:38:54,427 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-08 00:12:27,952 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-08 02:35:15,495 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-08 02:43:23,787 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-08 04:28:50,523 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-08 05:29:49,950 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-08 05:30:13,235 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-08 06:57:40,696 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-08 09:49:45,388 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-08 10:43:57,400 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-08 13:22:39,312 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-08 14:25:34,093 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-08 16:06:52,962 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-08 17:22:39,608 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-08 19:36:23,186 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-08 23:00:32,233 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-09 02:36:27,765 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-09 05:11:54,107 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-09 07:54:46,239 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-09 11:40:16,962 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-09 15:23:36,187 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-09 15:45:07,977 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-09 17:27:44,575 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-09 19:35:16,226 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-09 20:52:55,482 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-09 23:33:08,167 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-10 02:03:23,251 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-10 03:35:48,028 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-10 06:37:25,371 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-10 09:36:13,473 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-10 10:25:46,365 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-10 13:43:43,146 [INFO] Shard ID None has successfully RESUMED session 4767f21a7cb1e8ef539275ce3c539c9f.
+2024-02-10 14:37:42,137 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-02-10 14:37:42,137 [INFO] logging in using static token
+2024-02-10 14:37:42,902 [INFO] Shard ID None has connected to Gateway (Session ID: b5fb1d7d0e3290f61c74b774a5bdb5db).
+2024-02-10 15:37:37,755 [INFO] Shard ID None has successfully RESUMED session b5fb1d7d0e3290f61c74b774a5bdb5db.
+2024-02-10 18:43:15,454 [INFO] Shard ID None has successfully RESUMED session b5fb1d7d0e3290f61c74b774a5bdb5db.
+2024-02-10 18:44:08,428 [INFO] Shard ID None has successfully RESUMED session b5fb1d7d0e3290f61c74b774a5bdb5db.
+2024-02-10 19:10:54,662 [INFO] Shard ID None has successfully RESUMED session b5fb1d7d0e3290f61c74b774a5bdb5db.
+2024-02-10 20:18:54,668 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2024-02-10 20:18:54,684 [INFO] logging in using static token
+2024-02-10 20:18:55,506 [INFO] Shard ID None has connected to Gateway (Session ID: 09a728be66e71c54ac7783403a425b6c).

@@ -1,0 +1,14 @@
+{
+    "token": "<insert token>",
+    "server_id": "<insert Serverid>",
+    "channels": [
+        {
+            "id": <numerical channel id>,
+            "time_threshold": <time in seconds>,
+            "max_messages": <number of mesages>
+        }
+    ],
+    "allowed_roles": [
+        "admin"
+    ]
+}
