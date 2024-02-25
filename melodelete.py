@@ -51,6 +51,8 @@ ALLOWED_ROLES = config["allowed_roles"]
 # Create a Discord client
 intents = discord.Intents.default()
 intents.messages = True
+intents.reactions = False
+intents.typing = False
 client = discord.Client(intents=intents)
 
 # Counts the total number of messages that need to be deleted for performance purposes.
