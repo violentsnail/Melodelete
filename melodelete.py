@@ -137,40 +137,29 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith(".autoping"):
-        # Check if the user has an allowed role
-        user_roles = [role.name for role in message.author.roles]
-        if any(role in user_roles for role in ALLOWED_ROLES):
-            await message.channel.send("Permissions Check: Valid")
-        else:
-            await message.channel.send("ACCESS DENIED, invalid perms")
-        return
-
-    if message.content.startswith(".autodelete"):
+    # If the message starts with a mention of this bot
+    if message.content.startswith(f"<@{client.user.id}>"):
         # Check if the user has an allowed role
         user_roles = [role.name for role in message.author.roles]
         if not any(role in user_roles for role in ALLOWED_ROLES):
             await message.channel.send("You don't have permission to use this command.")
             return
 
-        # Check if the command is '.autodelete clear'
-        if message.content.strip() == ".autodelete clear":
+        # Then parse out the command after the mention
+        command = message.content[len(f"<@{client.user.id}>"):].strip()
+        if command == "ping":
+            await message.channel.send("Hi there! You have permission to use commands.")
+        elif command == "clear":
             # Remove channel entry from CHANNELS and config.json
             CHANNELS = [channel for channel in CHANNELS if channel["id"] != message.channel.id]
             config["channels"] = CHANNELS
             with open("config.json", "w") as f:
                 json.dump(config, f, indent=4)
             await message.channel.send("This channel has been removed from auto-delete.")
-            return
-
-        # Check if the command is '.autodelete refresh'
-        if message.content.strip() == ".autodelete refresh":
+        elif command == "refresh":
             await message.channel.send("Refreshing message deletion...")
             await delete_old_messages()  # Call the delete_old_messages function on refresh command
-            return
-
-        # Check if the command is '.autodelete config'
-        if message.content.strip() == ".autodelete config":
+        elif command == "config":
             for channel_config in CHANNELS:
                 if message.channel.id == channel_config["id"]:
                     time_threshold_hours = channel_config["time_threshold"] // 60 if "time_threshold" in channel_config else "Not set"
@@ -178,73 +167,71 @@ async def on_message(message):
                     await message.channel.send(f"Current settings for this channel:\n- Time threshold: {time_threshold_hours} hours\n- Max messages: {max_messages}")
                     return
             await message.channel.send("This channel is not configured for auto-delete.")
-            return
+        else:
+            command_parts = command.split()
+            if len(command_parts) >= 2:
+                time_str = None
+                max_messages_str = None
 
-        # Handle the rest of the command...
-        command_parts = message.content.split()
-        if len(command_parts) >= 2:
-            time_str = None
-            max_messages_str = None
+                for part in command_parts[1:]:
+                    if part.startswith("-h"):
+                        time_str = part[2:]
+                    elif part.startswith("-max"):
+                        max_messages_str = part[4:]
 
-            for part in command_parts[1:]:
-                if part.startswith("-h"):
-                    time_str = part[2:]
-                elif part.startswith("-max"):
-                    max_messages_str = part[4:]
+                time_threshold = None
+                max_messages = None
 
-            time_threshold = None
-            max_messages = None
+                if time_str:
+                    try:
+                        hours = int(time_str)
+                        time_threshold = hours * 60  # Convert hours to minutes
+                    except ValueError:
+                        await message.channel.send("Invalid time format. Please use a whole number for the hours.")
+                        return
 
-            if time_str:
-                try:
-                    hours = int(time_str)
-                    time_threshold = hours * 60  # Convert hours to minutes
-                except ValueError:
-                    await message.channel.send("Invalid time format. Please use a whole number for the hours.")
+                if max_messages_str:
+                    try:
+                        max_messages = int(max_messages_str)
+                    except ValueError:
+                        await message.channel.send("Invalid max messages format. Please use a whole number for the max messages.")
+                        return
+
+                if time_threshold is None and max_messages is None:
+                    await message.channel.send("Please specify either -h or -max.")
                     return
 
-            if max_messages_str:
-                try:
-                    max_messages = int(max_messages_str)
-                except ValueError:
-                    await message.channel.send("Invalid max messages format. Please use a whole number for the max messages.")
-                    return
+                # Update the settings for the channel or create a new entry
+                found_channel = False
+                for channel_config in CHANNELS:
+                    if message.channel.id == channel_config["id"]:
+                        if time_threshold is not None:
+                            channel_config["time_threshold"] = time_threshold
+                        if max_messages is not None:
+                            channel_config["max_messages"] = max_messages
+                        found_channel = True
+                        break
 
-            if time_threshold is None and max_messages is None:
-                await message.channel.send("Please specify either -h or -max.")
-                return
+                if not found_channel:
+                    new_channel = {
+                        "id": message.channel.id,
+                        "time_threshold": time_threshold,
+                        "max_messages": max_messages
+                    }
+                    CHANNELS.append(new_channel)
 
-            # Update the settings for the channel or create a new entry
-            found_channel = False
-            for channel_config in CHANNELS:
-                if message.channel.id == channel_config["id"]:
-                    if time_threshold is not None:
-                        channel_config["time_threshold"] = time_threshold
-                    if max_messages is not None:
-                        channel_config["max_messages"] = max_messages
-                    found_channel = True
-                    break
+                # Save the updated configuration to the file
+                config["channels"] = CHANNELS
+                with open("config.json", "w") as f:
+                    json.dump(config, f, indent=4)
 
-            if not found_channel:
-                new_channel = {
-                    "id": message.channel.id,
-                    "time_threshold": time_threshold,
-                    "max_messages": max_messages
-                }
-                CHANNELS.append(new_channel)
+                if time_threshold is not None and max_messages is not None:
+                    await message.channel.send(f"Auto-delete settings for this channel have been updated: messages older than {hours} hours will be deleted, and there will be a maximum of {max_messages} messages.")
+                elif time_threshold is not None:
+                    await message.channel.send(f"Auto-delete settings for this channel have been updated: messages older than {hours} hours will be deleted.")
+                elif max_messages is not None:
+                    await message.channel.send(f"Auto-delete settings for this channel have been updated: there will be a maximum of {max_messages} messages.")
 
-            # Save the updated configuration to the file
-            config["channels"] = CHANNELS
-            with open("config.json", "w") as f:
-                json.dump(config, f, indent=4)
-
-            if time_threshold is not None and max_messages is not None:
-                await message.channel.send(f"Auto-delete settings for this channel have been updated: messages older than {hours} hours will be deleted, and there will be a maximum of {max_messages} messages.")
-            elif time_threshold is not None:
-                await message.channel.send(f"Auto-delete settings for this channel have been updated: messages older than {hours} hours will be deleted.")
-            elif max_messages is not None:
-                await message.channel.send(f"Auto-delete settings for this channel have been updated: there will be a maximum of {max_messages} messages.")
-        
 @client.event
 async def on_raw_message_delete(payload):
     CHANNELS = load_channels()
