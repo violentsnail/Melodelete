@@ -119,13 +119,15 @@ async def delete_old_messages():
 async def on_ready():
     print(f"Logged in as {client.user.name}")
     #logging.info(f"Logged in as {client.user.name}")
-    
-    await count_messages_to_delete()
-    print("------")
-    #logging.info("------")
+    while True:
+        await count_messages_to_delete()
+        print("------")
+        #logging.info("------")
 
-    # Call the delete_old_messages function on startup
-    await delete_old_messages()
+        # Call the delete_old_messages function on startup
+        await delete_old_messages()
+
+        await asyncio.sleep(120)  # Wait 2 minutes before running through again
 
 @client.event
 async def on_message(message):
