@@ -11,13 +11,6 @@ pip3 install discord
 
 You will then need an application ID and bot token, which you can obtain on the [Discord Developer Portal](https://discord.com/developers/applications) after creating an application and generating a bot token. Make sure to copy the bot token somewhere, as it is only ever displayed once, and you must reset the token, triggering two-factor authentication, to get another.
 
-In the settings for your new application, go into Settings/Bot, and under Privileged Gateway Intents, enable:
-
-> Message Content Intent
-> Required for your bot to receive message content in most messages.
-
-before saving the settings.
-
 You may then add the bot to the server you wish to use it on by visiting a URL like this in a browser:
 `https://discord.com/api/oauth2/authorize?client_id=APPLICATION_ID_GOES_HERE&permissions=76800&scope=bot`
 where `APPLICATION_ID_GOES_HERE` is the application ID shown for the bot under Settings/General Information.
