@@ -1,6 +1,7 @@
 import discord
 import json
 import asyncio
+import aiohttp
 import os
 from datetime import datetime, timedelta, timezone
 import logging
@@ -53,7 +54,33 @@ intents = discord.Intents.default()
 intents.messages = True
 intents.reactions = False
 intents.typing = False
-client = discord.Client(intents=intents)
+
+# Set up an HTTP request tracer that will let us know what the current rate
+# limit is for deletions.
+
+rate_limit = 0
+
+async def on_request_end(session, trace_config_ctx, params):
+    if params.method == "DELETE":  # Message deletions use the DELETE HTTP method
+        global rate_limit
+        try:
+            if int(params.response.headers["X-RateLimit-Remaining"]) == 0:
+                # We have hit the limit and can therefore define it.
+                # The time to reset is assumed to apply equally to every
+                # request before this one.
+                rate_limit = float(params.response.headers["X-RateLimit-Reset-After"]) / int(params.response.headers["X-RateLimit-Limit"])
+                logging.info(f"Rate limit is now {rate_limit} seconds")
+        except ValueError:
+            logging.warn(f"Rate-limiting header values malformed (X-RateLimit-Reset-After: {params.response.headers['X-RateLimit-Reset-After']}; X-RateLimit-Limit: {params.response.headers['X-RateLimit-Limit']}; X-RateLimit-Remaining: {params.response.headers['X-RateLimit-Remaining']})")
+        except KeyError:
+            logging.warn("No rate-limiting headers received in response to DELETE")
+        except ZeroDivisionError:
+            logging.warn("Rate-limiting headers suggest that we cannot make any requests")
+
+trace_config = aiohttp.TraceConfig()
+trace_config.on_request_end.append(on_request_end)
+
+client = discord.Client(intents=intents, http_trace=trace_config)
 
 # Counts the total number of messages that need to be deleted for performance purposes.
 async def count_messages_to_delete():
@@ -90,6 +117,9 @@ async def delete_old_messages():
     CHANNELS = load_channels()
 
     for channel_config in CHANNELS:
+        global rate_limit
+        rate_limit = 0
+
         channel_id = channel_config["id"]
         time_threshold = channel_config.get("time_threshold", None)
         max_messages = channel_config.get("max_messages", None)
@@ -101,8 +131,8 @@ async def delete_old_messages():
                     threshold_time = datetime.now(timezone.utc) - timedelta(minutes=time_threshold)
                     async for message in channel.history(limit=None):
                         if message.created_at < threshold_time and not message.pinned:
+                            await asyncio.sleep(rate_limit)
                             await message.delete()
-                            await asyncio.sleep(30)  # Delay to avoid rate limiting
                     # Additional sleep to ensure completion of time_threshold deletions
                     await asyncio.sleep(5)
 
@@ -111,8 +141,8 @@ async def delete_old_messages():
                     if len(messages) > max_messages:
                         for message in messages[:-max_messages]:
                             if not message.pinned:
+                                await asyncio.sleep(rate_limit)
                                 await message.delete()
-                                await asyncio.sleep(30  )  # Delay to avoid rate limiting
             except Exception as e:
                 print(f"Error in delete_old_messages for channel {channel.name} (ID: {channel_id}): {e}")
         else:
