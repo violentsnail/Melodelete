@@ -107,11 +107,12 @@ async def delete_old_messages():
                     await asyncio.sleep(5)
 
                 if max_messages:
-                    messages = [message async for message in channel.history(limit=max_messages + 1)]
+                    messages = [message async for message in channel.history(limit=None, oldest_first=True)]
                     if len(messages) > max_messages:
-                        for message in messages[max_messages:]:
-                            await message.delete()
-                            await asyncio.sleep(30  )  # Delay to avoid rate limiting
+                        for message in messages[:-max_messages]:
+                            if not message.pinned:
+                                await message.delete()
+                                await asyncio.sleep(30  )  # Delay to avoid rate limiting
             except Exception as e:
                 print(f"Error in delete_old_messages for channel {channel.name} (ID: {channel_id}): {e}")
         else:
