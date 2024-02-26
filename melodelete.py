@@ -117,10 +117,27 @@ async def delete_old_messages():
         else:
             print(f"Channel not found: {channel_id}")
 
+# Since on_ready may be called more than once during a bot session, we need to
+# make sure our main loop is only run once.
+# See <https://discordpy.readthedocs.io/en/stable/api.html#discord.on_ready>
+# This function is not guaranteed to be the first event called. Likewise, this
+# function is *not* guaranteed to only be called once. This library implements
+# reconnection logic and thus will end up calling this event whenever a RESUME
+# request fails.
+main_loop_started = False
+
 @client.event
 async def on_ready():
     print(f"Logged in as {client.user.name}")
     #logging.info(f"Logged in as {client.user.name}")
+
+    # Only start this loop once.
+    global main_loop_started
+    if main_loop_started:
+        return
+
+    main_loop_started = True
+
     while True:
         await count_messages_to_delete()
         print("------")
