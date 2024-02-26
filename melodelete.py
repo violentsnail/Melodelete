@@ -71,13 +71,13 @@ async def on_request_end(session, trace_config_ctx, params):
                 # The time to reset is assumed to apply equally to every
                 # request before this one.
                 rate_limit = float(params.response.headers["X-RateLimit-Reset-After"]) / int(params.response.headers["X-RateLimit-Limit"])
-                logging.info(f"Rate limit is now {rate_limit} seconds")
+                logger.info(f"Rate limit is now {rate_limit} seconds")
         except ValueError:
-            logging.warn(f"Rate-limiting header values malformed (X-RateLimit-Reset-After: {params.response.headers['X-RateLimit-Reset-After']}; X-RateLimit-Limit: {params.response.headers['X-RateLimit-Limit']}; X-RateLimit-Remaining: {params.response.headers['X-RateLimit-Remaining']})")
+            logger.warn(f"Rate-limiting header values malformed (X-RateLimit-Reset-After: {params.response.headers['X-RateLimit-Reset-After']}; X-RateLimit-Limit: {params.response.headers['X-RateLimit-Limit']}; X-RateLimit-Remaining: {params.response.headers['X-RateLimit-Remaining']})")
         except KeyError:
-            logging.warn("No rate-limiting headers received in response to DELETE")
+            logger.warn("No rate-limiting headers received in response to DELETE")
         except ZeroDivisionError:
-            logging.warn("Rate-limiting headers suggest that we cannot make any requests")
+            logger.warn("Rate-limiting headers suggest that we cannot make any requests")
 
 trace_config = aiohttp.TraceConfig()
 trace_config.on_request_end.append(on_request_end)
