@@ -10,8 +10,10 @@ import logging
 log_filename = "melodelete.log"
 log_filepath = os.path.join(os.path.dirname(os.path.realpath(__file__)), log_filename)
 
+logger = logging.getLogger("melodelete")
+
 logging.basicConfig(level=logging.INFO,
-                    format='%(asctime)s [%(levelname)s] %(message)s',
+                    format='%(asctime)s %(name)-15s %(levelname)-8s %(message)s',
                     handlers=[
                         logging.FileHandler(log_filepath),
                         logging.StreamHandler()
@@ -39,7 +41,7 @@ if not os.path.exists(config_file):
 
     with open(config_file, "w") as f:
         json.dump(default_config, f, indent=4)
-        print("config.json created. Please update the token, server ID, and other settings before running the bot.")
+        logger.critical("config.json created. Please update the token, server ID, and other settings before running the bot.")
         exit()
 
 # Discord bot token, server ID, and allowed roles from the config
@@ -69,13 +71,13 @@ async def on_request_end(session, trace_config_ctx, params):
                 # The time to reset is assumed to apply equally to every
                 # request before this one.
                 rate_limit = float(params.response.headers["X-RateLimit-Reset-After"]) / int(params.response.headers["X-RateLimit-Limit"])
-                logging.info(f"Rate limit is now {rate_limit} seconds")
+                logger.info(f"Rate limit is now {rate_limit} seconds")
         except ValueError:
-            logging.warn(f"Rate-limiting header values malformed (X-RateLimit-Reset-After: {params.response.headers['X-RateLimit-Reset-After']}; X-RateLimit-Limit: {params.response.headers['X-RateLimit-Limit']}; X-RateLimit-Remaining: {params.response.headers['X-RateLimit-Remaining']})")
+            logger.warn(f"Rate-limiting header values malformed (X-RateLimit-Reset-After: {params.response.headers['X-RateLimit-Reset-After']}; X-RateLimit-Limit: {params.response.headers['X-RateLimit-Limit']}; X-RateLimit-Remaining: {params.response.headers['X-RateLimit-Remaining']})")
         except KeyError:
-            logging.warn("No rate-limiting headers received in response to DELETE")
+            logger.warn("No rate-limiting headers received in response to DELETE")
         except ZeroDivisionError:
-            logging.warn("Rate-limiting headers suggest that we cannot make any requests")
+            logger.warn("Rate-limiting headers suggest that we cannot make any requests")
 
 trace_config = aiohttp.TraceConfig()
 trace_config.on_request_end.append(on_request_end)
@@ -103,13 +105,11 @@ async def count_messages_to_delete():
                 if max_messages and len(all_messages) > max_messages:
                     messages_to_delete += len(all_messages) - max_messages
 
-                print(f"Channel {channel.name} (ID: {channel_id}) has {messages_to_delete} messages to delete.")
-                #logging.info(f"Channel {channel.name} (ID: {channel_id}) has {messages_to_delete} messages to delete.")
+                logger.info(f"#{channel.name} (ID: {channel_id}) has {messages_to_delete} messages to delete.")
             except Exception as e:
-                print(f"Error in count_messages_to_delete for channel {channel.name} (ID: {channel_id}): {e}")
-                #logging.info(f"Error in count_messages_to_delete for channel {channel.name} (ID: {channel_id}): {e}")
+                logger.exception(f"Error in count_messages_to_delete for #{channel.name} (ID: {channel_id})", exc_info=e)
         else:
-            print(f"Channel not found: {channel_id}")
+            logger.error(f"Channel not found: {channel_id}")
 
 
 # Function to delete old messages from the watched channels
@@ -144,9 +144,9 @@ async def delete_old_messages():
                                 await asyncio.sleep(rate_limit)
                                 await message.delete()
             except Exception as e:
-                print(f"Error in delete_old_messages for channel {channel.name} (ID: {channel_id}): {e}")
+                logger.exception(f"Error in delete_old_messages for #{channel.name} (ID: {channel_id})", exc_info=e)
         else:
-            print(f"Channel not found: {channel_id}")
+            logger.error(f"Channel not found: {channel_id}")
 
 # Since on_ready may be called more than once during a bot session, we need to
 # make sure our main loop is only run once.
@@ -159,8 +159,7 @@ main_loop_started = False
 
 @client.event
 async def on_ready():
-    print(f"Logged in as {client.user.name}")
-    #logging.info(f"Logged in as {client.user.name}")
+    logger.info(f"Logged in as {client.user.name}#{client.user.discriminator} (ID: {client.user.id})")
 
     # Only start this loop once.
     global main_loop_started
@@ -170,10 +169,8 @@ async def on_ready():
     main_loop_started = True
 
     while True:
+        logger.info("-- New scan --")
         await count_messages_to_delete()
-        print("------")
-        #logging.info("------")
-
         # Call the delete_old_messages function on startup
         await delete_old_messages()
 
@@ -288,9 +285,7 @@ async def on_raw_message_delete(payload):
     channel = client.get_channel(payload.channel_id)
 
     if channel and payload.channel_id in [channel["id"] for channel in CHANNELS]:
-        current_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
-        print(f"[{current_time}] Message deleted in {channel.name} (ID: {payload.channel_id})")
-        #logging.info(f"Message deleted in {channel.name} (ID: {payload.channel_id})")
+        logger.info(f"Message deleted in #{channel.name} (ID: {payload.channel_id})")
 
 # Run the bot
-client.run(TOKEN)
+client.run(TOKEN, log_handler=None)
