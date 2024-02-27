@@ -84,69 +84,72 @@ trace_config.on_request_end.append(on_request_end)
 
 client = discord.Client(intents=intents, http_trace=trace_config)
 
-# Counts the total number of messages that need to be deleted for performance purposes.
-async def count_messages_to_delete():
-    CHANNELS = load_channels()
-    for channel_config in CHANNELS:
-        channel_id = channel_config["id"]
-        time_threshold = channel_config.get("time_threshold", None)
-        max_messages = channel_config.get("max_messages", None)
+"""Scans the given channel for messages that can be deleted in the given channel
+   given the current configuration and returns a sequence of those messages.
 
-        channel = client.get_channel(channel_id)
-        if channel:
-            try:
-                messages_to_delete = 0
-                all_messages = [message async for message in channel.history(limit=None)]
+   In:
+     channel: The discord.TextChannel instance to scan for deletable messages.
+     time_threshold: The number of minutes of history before which messages are
+       deletable, or None if this is not to be used as a criterion.
+     max_messages: The maximum number of messages to leave in the channel, or
+       None if this is not to be used as a criterion.
+   Returns:
+     A sequence of discord.Message objects that represent deletable messages."""
+async def get_channel_deletable_messages(channel, time_threshold, max_messages):
+    messages = []  # fallback if no criteria
+    if time_threshold is not None:  # and max_messages is to be determined
+        time_cutoff = datetime.now(timezone.utc) - timedelta(minutes=time_threshold)
+        if max_messages:  # if both criteria
+            messages = [message async for message in channel.history(limit=None, oldest_first=True) if not message.pinned]
+            messages = [message for i, message in enumerate(messages) if i < len(messages) - max_messages or message.created_at < time_cutoff]
+        else:  # and max_messages is None
+            messages = [message async for message in channel.history(limit=None, before=time_cutoff, oldest_first=True) if not message.pinned]
+    elif max_messages is not None:  # and time_threshold is None
+        messages = [message async for message in channel.history(limit=None, oldest_first=True) if not message.pinned][:-max_messages]
 
-                if time_threshold:
-                    threshold_time = datetime.now(timezone.utc) - timedelta(minutes=time_threshold)
-                    messages_to_delete += len([message for message in all_messages if message.created_at < threshold_time and not message.pinned])
+    return messages
 
-                if max_messages and len(all_messages) > max_messages:
-                    messages_to_delete += len(all_messages) - max_messages
+"""Deletes the given sequence of messages, which must all be part of the same
+   channel.
 
-                logger.info(f"#{channel.name} (ID: {channel_id}) has {messages_to_delete} messages to delete.")
-            except Exception as e:
-                logger.exception(f"Error in count_messages_to_delete for #{channel.name} (ID: {channel_id})", exc_info=e)
-        else:
-            logger.error(f"Channel not found: {channel_id}")
+   In:
+     messages: The list of messages to delete."""
+async def delete_channel_deletable_messages(messages):
+    global rate_limit
 
+    for message in messages:
+        await asyncio.sleep(rate_limit)
+        await message.delete()
 
-# Function to delete old messages from the watched channels
+"""Deletes deletable messages from all configured channels."""
 async def delete_old_messages():
     CHANNELS = load_channels()
 
-    for channel_config in CHANNELS:
-        global rate_limit
-        rate_limit = 0
+    global rate_limit
+    rate_limit = 0
 
+    to_delete = []  # List of tuples of (Channel, List[Message])
+
+    for channel_config in CHANNELS:
         channel_id = channel_config["id"]
         time_threshold = channel_config.get("time_threshold", None)
         max_messages = channel_config.get("max_messages", None)
-
         channel = client.get_channel(channel_id)
         if channel:
             try:
-                if time_threshold:
-                    threshold_time = datetime.now(timezone.utc) - timedelta(minutes=time_threshold)
-                    async for message in channel.history(limit=None):
-                        if message.created_at < threshold_time and not message.pinned:
-                            await asyncio.sleep(rate_limit)
-                            await message.delete()
-                    # Additional sleep to ensure completion of time_threshold deletions
-                    await asyncio.sleep(5)
-
-                if max_messages:
-                    messages = [message async for message in channel.history(limit=None, oldest_first=True)]
-                    if len(messages) > max_messages:
-                        for message in messages[:-max_messages]:
-                            if not message.pinned:
-                                await asyncio.sleep(rate_limit)
-                                await message.delete()
+                deletable_messages = await get_channel_deletable_messages(channel, time_threshold=time_threshold, max_messages=max_messages)
+                logger.info(f"#{channel.name} (ID: {channel_id}) has {len(deletable_messages)} messages to delete.")
+                to_delete.append((channel, deletable_messages))
             except Exception as e:
-                logger.exception(f"Error in delete_old_messages for #{channel.name} (ID: {channel_id})", exc_info=e)
+                logger.exception(f"Failed to scan for messages to delete in #{channel.name} (ID: {channel_id})", exc_info=e)
         else:
             logger.error(f"Channel not found: {channel_id}")
+
+    for channel, deletable_messages in to_delete:
+        try:
+            await delete_channel_deletable_messages(deletable_messages)
+        except Exception as e:
+            logger.exception(f"Failed to delete messages in #{channel.name} (ID: {channel.id})", exc_info=e)
 
 # Since on_ready may be called more than once during a bot session, we need to
 # make sure our main loop is only run once.
@@ -170,10 +173,7 @@ async def on_ready():
 
     while True:
         logger.info("-- New scan --")
-        await count_messages_to_delete()
-        # Call the delete_old_messages function on startup
         await delete_old_messages()
-
         await asyncio.sleep(120)  # Wait 2 minutes before running through again
 
 @client.event
