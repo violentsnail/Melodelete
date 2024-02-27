@@ -219,11 +219,11 @@ async def on_message(message):
             await message.channel.send("This channel is not configured for auto-delete.")
         else:
             command_parts = command.split()
-            if len(command_parts) >= 2:
+            if len(command_parts) >= 1:
                 time_str = None
                 max_messages_str = None
 
-                for part in command_parts[1:]:
+                for part in command_parts:
                     if part.startswith("-h"):
                         time_str = part[2:]
                     elif part.startswith("-max"):
