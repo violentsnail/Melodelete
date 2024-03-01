@@ -209,9 +209,9 @@ async def on_message(message):
         elif command == "config":
             for channel_config in CHANNELS:
                 if message.channel.id == channel_config["id"]:
-                    time_threshold_hours = channel_config["time_threshold"] // 60 if "time_threshold" in channel_config else "Not set"
-                    max_messages = channel_config["max_messages"] if "max_messages" in channel_config else "Not set"
-                    await message.channel.send(f"Current settings for this channel:\n- Time threshold: {time_threshold_hours} hours\n- Max messages: {max_messages}")
+                    time_threshold_hours = f"{channel_config['time_threshold'] // 60} hours" if "time_threshold" in channel_config and channel_config["time_threshold"] is not None else "Not set"
+                    max_messages = channel_config["max_messages"] if "max_messages" in channel_config and channel_config["max_messages"] is not None else "Not set"
+                    await message.channel.send(f"Current settings for this channel:\n- Time threshold: {time_threshold_hours}\n- Max messages: {max_messages}")
                     return
             await message.channel.send("This channel is not configured for auto-delete.")
         else:
@@ -249,23 +249,23 @@ async def on_message(message):
                     return
 
                 # Update the settings for the channel or create a new entry
-                found_channel = False
+                channel = None
                 for channel_config in CHANNELS:
                     if message.channel.id == channel_config["id"]:
-                        if time_threshold is not None:
-                            channel_config["time_threshold"] = time_threshold
-                        if max_messages is not None:
-                            channel_config["max_messages"] = max_messages
-                        found_channel = True
+                        channel = channel_config
                         break
-
-                if not found_channel:
-                    new_channel = {
-                        "id": message.channel.id,
-                        "time_threshold": time_threshold,
-                        "max_messages": max_messages
+                else:  # no channel was found
+                    channel = {
+                        "id": message.channel.id
                     }
-                    CHANNELS.append(new_channel)
+                    CHANNELS.append(channel)
+
+                channel.pop("time_threshold", None)  # prepare for resetting
+                channel.pop("max_messages", None)    # these two attributes
+                if time_threshold is not None:
+                    channel["time_threshold"] = time_threshold
+                if max_messages is not None:
+                    channel["max_messages"] = max_messages
 
                 # Save the updated configuration to the file
                 config["channels"] = CHANNELS
