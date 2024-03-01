@@ -63,7 +63,8 @@ intents.typing = False
 rate_limit = 0
 
 async def on_request_end(session, trace_config_ctx, params):
-    if params.method == "DELETE":  # Message deletions use the DELETE HTTP method
+    if (params.method == "DELETE"  # Message deletions use the DELETE HTTP method
+     or params.url.path.endswith("/bulk-delete")):  # Bulk Delete Messages POSTs here
         global rate_limit
         try:
             if int(params.response.headers["X-RateLimit-Remaining"]) == 0:
@@ -109,17 +110,76 @@ async def get_channel_deletable_messages(channel, time_threshold, max_messages):
 
     return messages
 
+"""Deletes the given messages from the channel that contains them using a single
+   Bulk Delete Messages call if possible, falling back to single deletions if it
+   fails.
+
+   In:
+     messages: A sequence of discord.Message objects representing the messages
+       to be deleted. They must all belong to the same channel."""
+async def delete_messages(messages):
+    global rate_limit
+
+    if len(messages) > 100:
+        messages = list(messages)  # Only index on a proper list
+        for i in range(0, len(messages), 100):
+            await delete_messages(messages[i : i+100])
+    elif len(messages):
+        channel = messages[0].channel
+        try:
+            await asyncio.sleep(rate_limit)
+            await channel.delete_messages(messages)
+        except discord.NotFound as e:  # only if it resolves to a single message
+            logger.info("Message ID {messages[0].id} in #{channel.name} (ID: {channel.id}) was deleted since scanning")
+        except discord.ClientException as e:
+            logger.exception("Failed to bulk delete {len(messages)} messages in #{channel.name} (ID: {channel.id}) due to the API considering the count to be too large; falling back to individual deletions", exc_info=e)
+            for message in messages:
+                await delete_message(message)
+        except discord.HTTPException as e:
+            logger.info("Failed to bulk delete {len(messages)} messages in #{channel.name} (ID: {channel.id}); falling back to individual deletions", exc_info=e)
+            for message in messages:
+                await delete_message(message)
+
+"""Deletes the given message from the channel that contains it.
+
+   In:
+     message: A discord.Message object representing the message to be deleted."""
+async def delete_message(message):
+    global rate_limit
+
+    try:
+        await asyncio.sleep(rate_limit)
+        await message.delete()
+    except discord.NotFound as e:
+        logger.info("Message ID {message.id} in #{message.channel.name} (ID: {message.channel.id}) was deleted since scanning")
+    except discord.HTTPException as e:
+        logger.exception("Failed to delete message ID {message.id} in #{message.channel.name} (ID: {message.channel.id})", exc_info=e)
+
 """Deletes the given sequence of messages, which must all be part of the same
-   channel.
+   channel, using the fewest possible API calls.
 
    In:
      messages: The list of messages to delete."""
 async def delete_channel_deletable_messages(messages):
     global rate_limit
+    # The Bulk Delete Messages API call only supports deleting messages up to 14
+    # days ago:
+    # https://discord.com/developers/docs/resources/channel#bulk-delete-messages
+    # (Why? https://github.com/discord/discord-api-docs/issues/208)
+    time_cutoff = datetime.now(timezone.utc) - timedelta(days=14)
+    batch = []  # The batch of messages we are accumulating for Bulk Delete
 
     for message in messages:
-        await asyncio.sleep(rate_limit)
-        await message.delete()
+        if message.created_at < time_cutoff:  # too old; delete single
+            await delete_message(message)
+        else:  # add to the batch
+            batch.append(message)
+            if len(batch) == 100:
+                await delete_messages(batch)
+                batch = []
+
+    if len(batch):
+        await delete_messages(batch)
 
 """Deletes deletable messages from all configured channels."""
 async def delete_old_messages():
@@ -286,6 +346,14 @@ async def on_raw_message_delete(payload):
 
     if channel and payload.channel_id in [channel["id"] for channel in CHANNELS]:
         logger.info(f"Message deleted in #{channel.name} (ID: {payload.channel_id})")
+
+@client.event
+async def on_raw_bulk_message_delete(payload):
+    CHANNELS = load_channels()
+    channel = client.get_channel(payload.channel_id)
+
+    if channel and payload.channel_id in [channel["id"] for channel in CHANNELS]:
+        logger.info(f"{len(payload.message_ids)} messages deleted in #{channel.name} (ID: {payload.channel_id})")
 
 # Run the bot
 client.run(TOKEN, log_handler=None)
