@@ -7,6 +7,21 @@ from typing import Sequence, Mapping, Optional, Union
 
 logger = logging.getLogger("melodelete.config")
 
+"""Sets default values in the configuration dictionary if they are not set.
+
+   In:
+     config_dict: The configuration dictionary.
+   Returns:
+     config_dict."""
+def apply_defaults(config_dict: Mapping) -> Mapping:
+    if "bulk_delete_min" not in config_dict:
+        config_dict["bulk_delete_min"] = 100
+    if "channels" not in config_dict:
+        config_dict["channels"] = []
+    if "allowed_roles" not in config_dict:
+        config_dict["allowed_roles"] = []
+    return config_dict
+
 class Config:
     def __init__(self) -> None:
         script_dir = os.path.dirname(os.path.realpath(__file__))
@@ -17,12 +32,10 @@ class Config:
     def load_config(self):
         # Check if the config.json file exists, otherwise create it with default values
         if not os.path.exists(self.config_file):
-            default_config = {
+            default_config = apply_defaults({
                 "token": "YOUR_DISCORD_BOT_TOKEN",
                 "server_id": "YOUR_SERVER_ID",
-                "channels": [],
-                "allowed_roles": []
-            }
+            })
             with open(self.config_file, "w") as f:
                 json.dump(default_config, f, indent=4)
                 self.logger.critical("config.json created. Please update the token, server ID, and other settings before running the bot.")
@@ -35,7 +48,7 @@ class Config:
             logger.critical("Please update the token, server ID, and other settings in config.json before running the bot.")
             exit()
 
-        return config
+        return apply_defaults(config)
 
     """Saves the configuration to file."""
     def save_config(self) -> None:
@@ -107,3 +120,13 @@ class Config:
     """Sets the current rate limit in seconds."""
     def set_rate_limit(self, rate_limit: Union[int, float]):
         self.rate_limit = float(rate_limit)
+
+    """Retrieves the minimum number of deletable messages in a single channel
+       for the bot to use Bulk Delete Messages to delete them all."""
+    def get_bulk_delete_min(self) -> int:
+        return self.config["bulk_delete_min"]
+
+    """Sets the minimum number of deletable messages in a single channel for
+       the bot to use Bulk Delete Messages to delete them all."""
+    def set_bulk_delete_min(self, bulk_delete_min: int) -> None:
+        self.config["bulk_delete_min"] = bulk_delete_min

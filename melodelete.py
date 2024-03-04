@@ -123,29 +123,34 @@ async def delete_message(message):
         logger.exception("Failed to delete message ID {message.id} in #{message.channel.name} (ID: {message.channel.id})", exc_info=e)
 
 """Deletes the given sequence of messages, which must all be part of the same
-   channel, using the fewest possible API calls.
+   channel, balancing using the fewest possible API calls with polluting the
+   Audit Log as little as possible.
 
    In:
      messages: The list of messages to delete."""
 async def delete_channel_deletable_messages(messages):
-    # The Bulk Delete Messages API call only supports deleting messages up to 14
-    # days ago:
-    # https://discord.com/developers/docs/resources/channel#bulk-delete-messages
-    # (Why? https://github.com/discord/discord-api-docs/issues/208)
-    time_cutoff = datetime.now(timezone.utc) - timedelta(days=14)
-    batch = []  # The batch of messages we are accumulating for Bulk Delete
+    if len(messages) >= config.get_bulk_delete_min():
+        # The Bulk Delete Messages API call only supports deleting messages
+        # up to 14 days ago:
+        # https://discord.com/developers/docs/resources/channel#bulk-delete-messages
+        # (Why? https://github.com/discord/discord-api-docs/issues/208)
+        time_cutoff = datetime.now(timezone.utc) - timedelta(days=14)
+        batch = []  # The batch of messages we are accumulating for Bulk Delete
 
-    for message in messages:
-        if message.created_at < time_cutoff:  # too old; delete single
+        for message in messages:
+            if message.created_at < time_cutoff:  # too old; delete single
+                await delete_message(message)
+            else:  # add to the batch
+                batch.append(message)
+                if len(batch) == 100:
+                    await delete_messages(batch)
+                    batch = []
+
+        if len(batch):
+            await delete_messages(batch)
+    else:
+        for message in messages:
             await delete_message(message)
-        else:  # add to the batch
-            batch.append(message)
-            if len(batch) == 100:
-                await delete_messages(batch)
-                batch = []
-
-    if len(batch):
-        await delete_messages(batch)
 
 """Deletes deletable messages from all configured channels."""
 async def delete_old_messages():

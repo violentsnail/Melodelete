@@ -10,5 +10,6 @@
     ],
     "allowed_roles": [
         "admin"
-    ]
+    ],
+    "bulk_delete_min": 100
 }
