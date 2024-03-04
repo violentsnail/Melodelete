@@ -232,9 +232,9 @@ async def on_message(message):
         elif command == "config":
             for channel_config in channels:
                 if message.channel.id == channel_config["id"]:
-                    time_threshold_hours = channel_config["time_threshold"] // 60 if "time_threshold" in channel_config else "Not set"
-                    max_messages = channel_config["max_messages"] if "max_messages" in channel_config else "Not set"
-                    await message.channel.send(f"Current settings for this channel:\n- Time threshold: {time_threshold_hours} hours\n- Max messages: {max_messages}")
+                    time_threshold_hours = f"{channel_config['time_threshold'] // 60} hours" if "time_threshold" in channel_config and channel_config["time_threshold"] is not None else "Not set"
+                    max_messages = channel_config["max_messages"] if "max_messages" in channel_config and channel_config["max_messages"] is not None else "Not set"
+                    await message.channel.send(f"Current settings for this channel:\n- Time threshold: {time_threshold_hours}\n- Max messages: {max_messages}")
                     return
             await message.channel.send("This channel is not configured for auto-delete.")
         else:
