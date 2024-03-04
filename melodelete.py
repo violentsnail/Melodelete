@@ -6,6 +6,8 @@ import os
 from datetime import datetime, timedelta, timezone
 import logging
 
+import config
+
 # Configure logging
 log_filename = "melodelete.log"
 log_filepath = os.path.join(os.path.dirname(os.path.realpath(__file__)), log_filename)
@@ -19,37 +21,8 @@ logging.basicConfig(level=logging.INFO,
                         logging.StreamHandler()
                     ])
 
-# Function to load channels from the config.json file
-def load_channels():
-    script_dir = os.path.dirname(os.path.realpath(__file__))
-    config_file = os.path.join(script_dir, "config.json")
-    with open(config_file) as f:
-        config = json.load(f)
-    return config["channels"]
-
-# Check if the config.json file exists, otherwise create it with default values
-script_dir = os.path.dirname(os.path.realpath(__file__))
-config_file = os.path.join(script_dir, "config.json")
-
-if not os.path.exists(config_file):
-    default_config = {
-        "token": "YOUR_DISCORD_BOT_TOKEN",
-        "server_id": "YOUR_SERVER_ID",
-        "channels": [],
-        "allowed_roles": []
-    }
-
-    with open(config_file, "w") as f:
-        json.dump(default_config, f, indent=4)
-        logger.critical("config.json created. Please update the token, server ID, and other settings before running the bot.")
-        exit()
-
-# Discord bot token, server ID, and allowed roles from the config
-with open(config_file) as f:
-    config = json.load(f)
-TOKEN = config["token"]
-SERVER_ID = config["server_id"]
-ALLOWED_ROLES = config["allowed_roles"]
+# Load the configuration
+config = config.Config()
 
 # Create a Discord client
 intents = discord.Intents.default()
@@ -60,18 +33,16 @@ intents.typing = False
 # Set up an HTTP request tracer that will let us know what the current rate
 # limit is for deletions.
 
-rate_limit = 0
-
 async def on_request_end(session, trace_config_ctx, params):
     if (params.method == "DELETE"  # Message deletions use the DELETE HTTP method
      or params.url.path.endswith("/bulk-delete")):  # Bulk Delete Messages POSTs here
-        global rate_limit
         try:
             if int(params.response.headers["X-RateLimit-Remaining"]) == 0:
                 # We have hit the limit and can therefore define it.
                 # The time to reset is assumed to apply equally to every
                 # request before this one.
                 rate_limit = float(params.response.headers["X-RateLimit-Reset-After"]) / int(params.response.headers["X-RateLimit-Limit"])
+                config.set_rate_limit(rate_limit)
                 logger.info(f"Rate limit is now {rate_limit} seconds")
         except ValueError:
             logger.warn(f"Rate-limiting header values malformed (X-RateLimit-Reset-After: {params.response.headers['X-RateLimit-Reset-After']}; X-RateLimit-Limit: {params.response.headers['X-RateLimit-Limit']}; X-RateLimit-Remaining: {params.response.headers['X-RateLimit-Remaining']})")
@@ -118,8 +89,6 @@ async def get_channel_deletable_messages(channel, time_threshold, max_messages):
      messages: A sequence of discord.Message objects representing the messages
        to be deleted. They must all belong to the same channel."""
 async def delete_messages(messages):
-    global rate_limit
-
     if len(messages) > 100:
         messages = list(messages)  # Only index on a proper list
         for i in range(0, len(messages), 100):
@@ -127,7 +96,7 @@ async def delete_messages(messages):
     elif len(messages):
         channel = messages[0].channel
         try:
-            await asyncio.sleep(rate_limit)
+            await asyncio.sleep(config.get_rate_limit())
             await channel.delete_messages(messages)
         except discord.NotFound as e:  # only if it resolves to a single message
             logger.info("Message ID {messages[0].id} in #{channel.name} (ID: {channel.id}) was deleted since scanning")
@@ -145,10 +114,8 @@ async def delete_messages(messages):
    In:
      message: A discord.Message object representing the message to be deleted."""
 async def delete_message(message):
-    global rate_limit
-
     try:
-        await asyncio.sleep(rate_limit)
+        await asyncio.sleep(config.get_rate_limit())
         await message.delete()
     except discord.NotFound as e:
         logger.info("Message ID {message.id} in #{message.channel.name} (ID: {message.channel.id}) was deleted since scanning")
@@ -161,7 +128,6 @@ async def delete_message(message):
    In:
      messages: The list of messages to delete."""
 async def delete_channel_deletable_messages(messages):
-    global rate_limit
     # The Bulk Delete Messages API call only supports deleting messages up to 14
     # days ago:
     # https://discord.com/developers/docs/resources/channel#bulk-delete-messages
@@ -183,14 +149,11 @@ async def delete_channel_deletable_messages(messages):
 
 """Deletes deletable messages from all configured channels."""
 async def delete_old_messages():
-    CHANNELS = load_channels()
-
-    global rate_limit
-    rate_limit = 0
+    config.set_rate_limit(0)
 
     to_delete = []  # List of tuples of (Channel, List[Message])
 
-    for channel_config in CHANNELS:
+    for channel_config in config.get_channels():
         channel_id = channel_config["id"]
         time_threshold = channel_config.get("time_threshold", None)
         max_messages = channel_config.get("max_messages", None)
@@ -238,17 +201,16 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    # Load the updated channel list from the config.json file
-    CHANNELS = load_channels()
-
     if message.author == client.user:
         return
+
+    channels = config.get_channels()
 
     # If the message starts with a mention of this bot
     if message.content.startswith(f"<@{client.user.id}>"):
         # Check if the user has an allowed role
         user_roles = [role.name for role in message.author.roles]
-        if not any(role in user_roles for role in ALLOWED_ROLES):
+        if not any(role in user_roles for role in config.get_allowed_role_names()):
             await message.channel.send("You don't have permission to use this command.")
             return
 
@@ -257,17 +219,13 @@ async def on_message(message):
         if command == "ping":
             await message.channel.send("Hi there! You have permission to use commands.")
         elif command == "clear":
-            # Remove channel entry from CHANNELS and config.json
-            CHANNELS = [channel for channel in CHANNELS if channel["id"] != message.channel.id]
-            config["channels"] = CHANNELS
-            with open("config.json", "w") as f:
-                json.dump(config, f, indent=4)
+            config.clear_channel(message.channel.id)
             await message.channel.send("This channel has been removed from auto-delete.")
         elif command == "refresh":
             await message.channel.send("Refreshing message deletion...")
             await delete_old_messages()  # Call the delete_old_messages function on refresh command
         elif command == "config":
-            for channel_config in CHANNELS:
+            for channel_config in channels:
                 if message.channel.id == channel_config["id"]:
                     time_threshold_hours = channel_config["time_threshold"] // 60 if "time_threshold" in channel_config else "Not set"
                     max_messages = channel_config["max_messages"] if "max_messages" in channel_config else "Not set"
@@ -308,29 +266,7 @@ async def on_message(message):
                     await message.channel.send("Please specify either -h or -max.")
                     return
 
-                # Update the settings for the channel or create a new entry
-                found_channel = False
-                for channel_config in CHANNELS:
-                    if message.channel.id == channel_config["id"]:
-                        if time_threshold is not None:
-                            channel_config["time_threshold"] = time_threshold
-                        if max_messages is not None:
-                            channel_config["max_messages"] = max_messages
-                        found_channel = True
-                        break
-
-                if not found_channel:
-                    new_channel = {
-                        "id": message.channel.id,
-                        "time_threshold": time_threshold,
-                        "max_messages": max_messages
-                    }
-                    CHANNELS.append(new_channel)
-
-                # Save the updated configuration to the file
-                config["channels"] = CHANNELS
-                with open("config.json", "w") as f:
-                    json.dump(config, f, indent=4)
+                config.set_channel(message.channel.id, time_threshold=time_threshold, max_messages=max_messages)
 
                 if time_threshold is not None and max_messages is not None:
                     await message.channel.send(f"Auto-delete settings for this channel have been updated: messages older than {hours} hours will be deleted, and there will be a maximum of {max_messages} messages.")
@@ -341,19 +277,19 @@ async def on_message(message):
 
 @client.event
 async def on_raw_message_delete(payload):
-    CHANNELS = load_channels()
+    channels = config.get_channels()
     channel = client.get_channel(payload.channel_id)
 
-    if channel and payload.channel_id in [channel["id"] for channel in CHANNELS]:
+    if channel and payload.channel_id in [channel["id"] for channel in channels]:
         logger.info(f"Message deleted in #{channel.name} (ID: {payload.channel_id})")
 
 @client.event
 async def on_raw_bulk_message_delete(payload):
-    CHANNELS = load_channels()
+    channels = config.get_channels()
     channel = client.get_channel(payload.channel_id)
 
-    if channel and payload.channel_id in [channel["id"] for channel in CHANNELS]:
+    if channel and payload.channel_id in [channel["id"] for channel in channels]:
         logger.info(f"{len(payload.message_ids)} messages deleted in #{channel.name} (ID: {payload.channel_id})")
 
 # Run the bot
-client.run(TOKEN, log_handler=None)
+client.run(config.get_token(), log_handler=None)
