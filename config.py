@@ -38,7 +38,7 @@ class Config:
             })
             with open(self.config_file, "w") as f:
                 json.dump(default_config, f, indent=4)
-                self.logger.critical("config.json created. Please update the token, server ID, and other settings before running the bot.")
+                logger.critical("config.json created. Please update the token, server ID, and other settings before running the bot.")
                 exit()
 
         with open(self.config_file) as f:
