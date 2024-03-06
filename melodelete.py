@@ -1,4 +1,5 @@
 import discord
+import discord.ext.commands as commands
 import json
 import asyncio
 import aiohttp
@@ -7,6 +8,8 @@ from datetime import datetime, timedelta, timezone
 import logging
 
 import config
+
+from typing import Optional
 
 # Configure logging
 log_filename = "melodelete.log"
@@ -54,7 +57,7 @@ async def on_request_end(session, trace_config_ctx, params):
 trace_config = aiohttp.TraceConfig()
 trace_config.on_request_end.append(on_request_end)
 
-client = discord.Client(intents=intents, http_trace=trace_config)
+client = commands.Bot(commands.when_mentioned, intents=intents, http_trace=trace_config)
 
 """Scans the given channel for messages that can be deleted in the given channel
    given the current configuration and returns a sequence of those messages.
@@ -204,81 +207,74 @@ async def on_ready():
         await delete_old_messages()
         await asyncio.sleep(120)  # Wait 2 minutes before running through again
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
+def allowed_roles_only():
+    return commands.has_any_role(*config.get_allowed_role_names())
 
-    channels = config.get_channels()
+@client.command()
+@allowed_roles_only()
+async def ping(context: commands.context.Context):
+    """Sends a reply saying whether you have permission to run commands.
 
-    # If the message starts with a mention of this bot
-    if message.content.startswith(f"<@{client.user.id}>"):
-        # Check if the user has an allowed role
-        user_roles = [role.name for role in message.author.roles]
-        if not any(role in user_roles for role in config.get_allowed_role_names()):
-            await message.channel.send("You don't have permission to use this command.")
-            return
+       If no message is sent, the bot is down or reconnecting to the server."""
+    async with context.typing():
+        await context.reply("Hi there! You have permission to use commands.")
 
-        # Then parse out the command after the mention
-        command = message.content[len(f"<@{client.user.id}>"):].strip()
-        if command == "ping":
-            await message.channel.send("Hi there! You have permission to use commands.")
-        elif command == "clear":
-            config.clear_channel(message.channel.id)
-            await message.channel.send("This channel has been removed from auto-delete.")
-        elif command == "refresh":
-            await message.channel.send("Refreshing message deletion...")
-            await delete_old_messages()  # Call the delete_old_messages function on refresh command
-        elif command == "config":
-            for channel_config in channels:
-                if message.channel.id == channel_config["id"]:
+@client.command()
+@allowed_roles_only()
+async def clear(context: commands.context.Context):
+    """Removes the current channel from auto-delete."""
+    async with context.typing():
+        config.clear_channel(context.channel.id)
+        await context.send("This channel has been removed from auto-delete.")
+
+class ConfigFlags(commands.FlagConverter, delimiter='', prefix='-'):
+    h:   Optional[int] = commands.flag(description="Number of hours of recent messages to leave in the channel")
+    max: Optional[int] = commands.flag(description="Maximum number of recent messages to leave in the channel")
+
+@client.command(name="config")  # The package config is already in scope
+@allowed_roles_only()
+async def configure(context: commands.context.Context, *, flags: ConfigFlags = commands.parameter(description="See Flags.")):
+    """Retrieves or sets the current channel's auto-delete configuration.
+
+       If at least one of the flags is provided, the current channel's
+       auto-delete configuration is set; otherwise, it is retrieved.
+
+       Flags:
+         [-h<#>]    Number of hours of recent messages to leave in the channel
+         [-max<#>]  Maximum number of recent messages to leave in the channel"""
+    async with context.typing():
+        hours, max_messages = flags.h, flags.max
+        if hours is None and max_messages is None:
+            for channel_config in config.get_channels():
+                if context.channel.id == channel_config["id"]:
                     time_threshold_hours = f"{channel_config['time_threshold'] // 60} hours" if "time_threshold" in channel_config and channel_config["time_threshold"] is not None else "Not set"
                     max_messages = channel_config["max_messages"] if "max_messages" in channel_config and channel_config["max_messages"] is not None else "Not set"
-                    await message.channel.send(f"Current settings for this channel:\n- Time threshold: {time_threshold_hours}\n- Max messages: {max_messages}")
-                    return
-            await message.channel.send("This channel is not configured for auto-delete.")
+                    await context.send(f"Current settings for this channel:\n- Time threshold: {time_threshold_hours}\n- Max messages: {max_messages}")
+                    break
+            else:  # channel not found
+                await context.send("This channel is not configured for auto-delete.")
         else:
-            command_parts = command.split()
-            if len(command_parts) >= 1:
-                time_str = None
-                max_messages_str = None
+            time_threshold = hours
+            if time_threshold is not None:
+                time_threshold *= 60  # Convert hours to minutes
 
-                for part in command_parts:
-                    if part.startswith("-h"):
-                        time_str = part[2:]
-                    elif part.startswith("-max"):
-                        max_messages_str = part[4:]
+            config.set_channel(context.channel.id, time_threshold=time_threshold, max_messages=max_messages)
 
-                time_threshold = None
-                max_messages = None
+            if hours is not None and max_messages is not None:
+                await context.send(f"Auto-delete settings for this channel have been updated: messages older than {hours} hours will be deleted, and there will be a maximum of {max_messages} messages.")
+            elif hours is not None:
+                await context.send(f"Auto-delete settings for this channel have been updated: messages older than {hours} hours will be deleted.")
+            elif max_messages is not None:
+                await context.send(f"Auto-delete settings for this channel have been updated: there will be a maximum of {max_messages} messages.")
 
-                if time_str:
-                    try:
-                        hours = int(time_str)
-                        time_threshold = hours * 60  # Convert hours to minutes
-                    except ValueError:
-                        await message.channel.send("Invalid time format. Please use a whole number for the hours.")
-                        return
-
-                if max_messages_str:
-                    try:
-                        max_messages = int(max_messages_str)
-                    except ValueError:
-                        await message.channel.send("Invalid max messages format. Please use a whole number for the max messages.")
-                        return
-
-                if time_threshold is None and max_messages is None:
-                    await message.channel.send("Please specify either -h or -max.")
-                    return
-
-                config.set_channel(message.channel.id, time_threshold=time_threshold, max_messages=max_messages)
-
-                if time_threshold is not None and max_messages is not None:
-                    await message.channel.send(f"Auto-delete settings for this channel have been updated: messages older than {hours} hours will be deleted, and there will be a maximum of {max_messages} messages.")
-                elif time_threshold is not None:
-                    await message.channel.send(f"Auto-delete settings for this channel have been updated: messages older than {hours} hours will be deleted.")
-                elif max_messages is not None:
-                    await message.channel.send(f"Auto-delete settings for this channel have been updated: there will be a maximum of {max_messages} messages.")
+@client.event
+async def on_command_error(context: commands.context.Context, error: commands.CommandError):
+    if isinstance(error, commands.MissingAnyRole):
+        await context.reply("You don't have permission to use this command.")
+    elif isinstance(error, commands.BadArgument):
+        await context.reply(f"An invalid value was encountered while processing this command: {error}" if str(error) else "An invalid value was encountered while processing this command.")
+    elif not isinstance(error, commands.CommandNotFound):
+        raise error
 
 @client.event
 async def on_raw_message_delete(payload):
