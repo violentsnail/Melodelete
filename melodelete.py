@@ -221,11 +221,14 @@ async def ping(context: commands.context.Context):
 
 @client.command()
 @allowed_roles_only()
-async def clear(context: commands.context.Context):
-    """Removes the current channel from auto-delete."""
+async def clear(context: commands.context.Context,
+                channel: Optional[discord.TextChannel] = commands.parameter(default=lambda ctx: ctx.channel, description="The channel to be removed from auto-delete.", displayed_default="<this channel>")):
+    """Removes a channel from auto-delete."""
     async with context.typing():
-        config.clear_channel(context.channel.id)
-        await context.send("This channel has been removed from auto-delete.")
+        config.clear_channel(channel.id)
+        await channel.send("This channel has been removed from auto-delete.")
+        if context.channel != channel:
+            await context.reply(f"{channel.mention} has been removed from auto-delete. A message was sent to the channel to let its users know of the change.")
 
 class ConfigFlags(commands.FlagConverter, delimiter='', prefix='-'):
     h:   Optional[int] = commands.flag(description="Number of hours of recent messages to leave in the channel")
@@ -233,10 +236,12 @@ class ConfigFlags(commands.FlagConverter, delimiter='', prefix='-'):
 
 @client.command(name="config")  # The package config is already in scope
 @allowed_roles_only()
-async def configure(context: commands.context.Context, *, flags: ConfigFlags = commands.parameter(description="See Flags.")):
-    """Retrieves or sets the current channel's auto-delete configuration.
+async def configure(context: commands.context.Context,
+                    channel: Optional[discord.TextChannel] = commands.parameter(default=lambda ctx: ctx.channel, description="The channel whose configuration is to be retrieved or set.", displayed_default="<this channel>"),
+                 *, flags: ConfigFlags = commands.parameter(description="See Flags.")):
+    """Retrieves or sets a channel's auto-delete configuration.
 
-       If at least one of the flags is provided, the current channel's
+       If at least one of the flags is provided, the channel's
        auto-delete configuration is set; otherwise, it is retrieved.
 
        Flags:
@@ -246,26 +251,32 @@ async def configure(context: commands.context.Context, *, flags: ConfigFlags = c
         hours, max_messages = flags.h, flags.max
         if hours is None and max_messages is None:
             for channel_config in config.get_channels():
-                if context.channel.id == channel_config["id"]:
+                if channel.id == channel_config["id"]:
                     time_threshold_hours = f"{channel_config['time_threshold'] // 60} hours" if "time_threshold" in channel_config and channel_config["time_threshold"] is not None else "Not set"
                     max_messages = channel_config["max_messages"] if "max_messages" in channel_config and channel_config["max_messages"] is not None else "Not set"
-                    await context.send(f"Current settings for this channel:\n- Time threshold: {time_threshold_hours}\n- Max messages: {max_messages}")
+                    await context.send(f"Current settings for {channel.mention}:\n- Time threshold: {time_threshold_hours}\n- Max messages: {max_messages}")
                     break
             else:  # channel not found
-                await context.send("This channel is not configured for auto-delete.")
+                await context.send(f"{channel.mention} is not configured for auto-delete.")
         else:
             time_threshold = hours
             if time_threshold is not None:
                 time_threshold *= 60  # Convert hours to minutes
 
-            config.set_channel(context.channel.id, time_threshold=time_threshold, max_messages=max_messages)
+            config.set_channel(channel.id, time_threshold=time_threshold, max_messages=max_messages)
 
+            # Send to the TARGET channel to let its users know of the change.
             if hours is not None and max_messages is not None:
-                await context.send(f"Auto-delete settings for this channel have been updated: messages older than {hours} hours will be deleted, and there will be a maximum of {max_messages} messages.")
+                await channel.send(f"Auto-delete settings for this channel have been updated: messages older than {hours} hours will be deleted, and there will be a maximum of {max_messages} messages.")
             elif hours is not None:
-                await context.send(f"Auto-delete settings for this channel have been updated: messages older than {hours} hours will be deleted.")
+                await channel.send(f"Auto-delete settings for this channel have been updated: messages older than {hours} hours will be deleted.")
             elif max_messages is not None:
-                await context.send(f"Auto-delete settings for this channel have been updated: there will be a maximum of {max_messages} messages.")
+                await channel.send(f"Auto-delete settings for this channel have been updated: there will be a maximum of {max_messages} messages.")
+            # Then, if the channel the command was issued in is not the target
+            # channel, drop something in the channel the command was issued in
+            # to let the bot master know that the command succeeded.
+            if context.channel != channel:
+                await context.reply(f"Auto-delete settings for {channel.mention} have been updated. A message was sent to the channel to let its users know of the setting change.")
 
 @client.event
 async def on_command_error(context: commands.context.Context, error: commands.CommandError):
