@@ -59,18 +59,21 @@ trace_config.on_request_end.append(on_request_end)
 
 client = commands.Bot(commands.when_mentioned, intents=intents, http_trace=trace_config)
 
-"""Scans the given channel for messages that can be deleted in the given channel
-   given the current configuration and returns a sequence of those messages.
-
-   In:
-     channel: The discord.TextChannel instance to scan for deletable messages.
-     time_threshold: The number of minutes of history before which messages are
-       deletable, or None if this is not to be used as a criterion.
-     max_messages: The maximum number of messages to leave in the channel, or
-       None if this is not to be used as a criterion.
-   Returns:
-     A sequence of discord.Message objects that represent deletable messages."""
 async def get_channel_deletable_messages(channel, time_threshold, max_messages):
+    """Scans the given channel for messages that can be deleted in the given
+       channel given the current configuration and returns a sequence of those
+       messages.
+
+       In:
+         channel: The discord.TextChannel instance to scan for deletable
+           messages.
+         time_threshold: The number of minutes of history before which messages
+           are deletable, or None if this is not to be used as a criterion.
+         max_messages: The maximum number of messages to leave in the channel,
+           or None if this is not to be used as a criterion.
+       Returns:
+         A sequence of discord.Message objects that represent deletable
+         messages."""
     messages = []  # fallback if no criteria
     if time_threshold is not None:  # and max_messages is to be determined
         time_cutoff = datetime.now(timezone.utc) - timedelta(minutes=time_threshold)
@@ -84,14 +87,14 @@ async def get_channel_deletable_messages(channel, time_threshold, max_messages):
 
     return messages
 
-"""Deletes the given messages from the channel that contains them using a single
-   Bulk Delete Messages call if possible, falling back to single deletions if it
-   fails.
-
-   In:
-     messages: A sequence of discord.Message objects representing the messages
-       to be deleted. They must all belong to the same channel."""
 async def delete_messages(messages):
+    """Deletes the given messages from the channel that contains them using a
+       single Bulk Delete Messages call if possible, falling back to single
+       deletions if it fails.
+
+       In:
+         messages: A sequence of discord.Message objects representing the
+           messages to be deleted. They must all belong to the same channel."""
     if len(messages) > 100:
         messages = list(messages)  # Only index on a proper list
         for i in range(0, len(messages), 100):
@@ -112,11 +115,12 @@ async def delete_messages(messages):
             for message in messages:
                 await delete_message(message)
 
-"""Deletes the given message from the channel that contains it.
-
-   In:
-     message: A discord.Message object representing the message to be deleted."""
 async def delete_message(message):
+    """Deletes the given message from the channel that contains it.
+
+       In:
+         message: A discord.Message object representing the message to be
+         deleted."""
     try:
         await asyncio.sleep(config.get_rate_limit())
         await message.delete()
@@ -125,13 +129,13 @@ async def delete_message(message):
     except discord.HTTPException as e:
         logger.exception("Failed to delete message ID {message.id} in #{message.channel.name} (ID: {message.channel.id})", exc_info=e)
 
-"""Deletes the given sequence of messages, which must all be part of the same
-   channel, balancing using the fewest possible API calls with polluting the
-   Audit Log as little as possible.
-
-   In:
-     messages: The list of messages to delete."""
 async def delete_channel_deletable_messages(messages):
+    """Deletes the given sequence of messages, which must all be part of the
+       same channel, balancing using the fewest possible API calls with
+       polluting the Audit Log as little as possible.
+
+       In:
+         messages: The list of messages to delete."""
     if len(messages) >= config.get_bulk_delete_min():
         # The Bulk Delete Messages API call only supports deleting messages
         # up to 14 days ago:
@@ -155,8 +159,8 @@ async def delete_channel_deletable_messages(messages):
         for message in messages:
             await delete_message(message)
 
-"""Deletes deletable messages from all configured channels."""
 async def delete_old_messages():
+    """Deletes deletable messages from all configured channels."""
     config.set_rate_limit(0)
 
     to_delete = []  # List of tuples of (Channel, List[Message])
