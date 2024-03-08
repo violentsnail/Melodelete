@@ -227,7 +227,12 @@ async def ping(context: commands.context.Context):
 @allowed_roles_only()
 async def clear(context: commands.context.Context,
                 channel: Optional[discord.TextChannel] = commands.parameter(default=lambda ctx: ctx.channel, description="The channel to be removed from auto-delete.", displayed_default="<this channel>")):
-    """Removes a channel from auto-delete."""
+    """Removes a channel from auto-delete.
+
+       To use the form of this command that accepts a channel, the
+       target channel must be a text channel, not a thread or voice
+       channel's associated text channel. For those, you need to be
+       inside the target thread or voice channel to use it."""
     async with context.typing():
         config.clear_channel(channel.id)
         await channel.send("This channel has been removed from auto-delete.")
@@ -247,6 +252,11 @@ async def configure(context: commands.context.Context,
 
        If at least one of the flags is provided, the channel's
        auto-delete configuration is set; otherwise, it is retrieved.
+
+       To use the form of this command that accepts a channel, the
+       target channel must be a text channel, not a thread or voice
+       channel's associated text channel. For those, you need to be
+       inside the target thread or voice channel to use it.
 
        Flags:
          [-h<#>]    Number of hours of recent messages to leave in the channel
