@@ -89,7 +89,7 @@ class Config:
                 break
         else:  # no channel was found
             channel = {
-                "id": message.channel.id
+                "id": channel_id
             }
             channels.append(channel)
 
