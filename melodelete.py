@@ -21,10 +21,7 @@ class Melodelete(commands.Bot):
 
         # Declare our intents, which are the things we want to know about as the
         # bot runs.
-        intents = discord.Intents.default()
-        intents.messages = True
-        intents.reactions = False
-        intents.typing = False
+        intents = discord.Intents(guilds=True, guild_messages=True)
 
         # Set up an HTTP request tracer that will let us know what the current
         # rate limit is for deletions.
