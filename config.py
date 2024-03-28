@@ -28,7 +28,7 @@ class Config:
         self.config_file = os.path.join(script_dir, "config.json")
         self.config = self.load_config()
 
-    def load_config(self):
+    def load_config(self) -> Mapping:
         """Retrieves the configuration from file."""
         # Check if the config.json file exists, otherwise create it with default values
         if not os.path.exists(self.config_file):
@@ -72,7 +72,7 @@ class Config:
         """Retrieves the list of names of roles allowed to issue bot commands."""
         return self.config["allowed_roles"]
 
-    def set_channel(self, channel_id: int, time_threshold: Optional[int], max_messages: Optional[int]):
+    def set_channel(self, channel_id: int, time_threshold: Optional[int], max_messages: Optional[int]) -> None:
         """Sets the autodelete configuration for a channel to the given values.
 
            In:
@@ -118,7 +118,7 @@ class Config:
         """Retrieves the current rate limit in seconds."""
         return self.rate_limit
 
-    def set_rate_limit(self, rate_limit: Union[int, float]):
+    def set_rate_limit(self, rate_limit: Union[int, float]) -> None:
         """Sets the current rate limit in seconds."""
         self.rate_limit = float(rate_limit)
 
