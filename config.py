@@ -16,6 +16,8 @@ def apply_defaults(config_dict: Mapping) -> Mapping:
          config_dict."""
     if "bulk_delete_min" not in config_dict:
         config_dict["bulk_delete_min"] = 100
+    if "scan_interval" not in config_dict:
+        config_dict["scan_interval"] = 2
     if "channels" not in config_dict:
         config_dict["channels"] = []
     if "allowed_roles" not in config_dict:
@@ -132,5 +134,15 @@ class Config:
         """Sets the minimum number of deletable messages in a single channel
            for the bot to use Bulk Delete Messages to delete them all."""
         self.config["bulk_delete_min"] = bulk_delete_min
+
+        self.save_config()
+
+    def get_scan_interval(self) -> int:
+        """Retrieves the delay between scans for deletable messages, in minutes."""
+        return self.config["scan_interval"]
+
+    def set_scan_interval(self, scan_interval: int) -> None:
+        """Sets the delay between scans for deletable messages, in minutes."""
+        self.config["scan_interval"] = scan_interval
 
         self.save_config()

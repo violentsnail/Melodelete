@@ -83,7 +83,7 @@ class Melodelete(commands.Bot):
         while True:
             logger.info("-- New scan --")
             await self.delete_old_messages()
-            await asyncio.sleep(120)  # Wait 2 minutes before running through again
+            await asyncio.sleep(max(self.config.get_scan_interval(), 2) * 60)
 
     async def on_raw_message_delete(self, payload: discord.RawMessageDeleteEvent) -> None:
         channels = self.config.get_channels()

@@ -88,17 +88,25 @@ class AutodeleteCommands(app_commands.Group):
 
     @app_commands.command()
     @app_commands.guild_only()
-    @app_commands.describe(bulkmin="Number of messages to require for Bulk Delete Messages (shows up in the Audit Log)")
+    @app_commands.describe(scandelay="Number of minutes to wait between scans for messages to delete",
+                           bulkmin="Number of messages to require for Bulk Delete Messages (shows up in the Audit Log)")
     @allowed_roles_only()
     async def serverconfig(self, interaction: discord.Interaction,
-                     bulkmin: Optional[app_commands.Range[int, 2]]) -> None:
+                     scandelay: Optional[app_commands.Range[int, 2]], bulkmin: Optional[app_commands.Range[int, 2]]) -> None:
         """View or set the server's auto-delete settings"""
-        if bulkmin is None:
+        if bulkmin is None and scandelay is None:
             bulkmin = self.config.get_bulk_delete_min()
-            await interaction.response.send_message(f"Current server-wide settings:\n- Number of deletable messages required for Bulk Delete Messages: {bulkmin}")
+            scandelay = self.config.get_scan_interval()
+            await interaction.response.send_message(f"Current server-wide settings:\n- {scandelay} minutes between scans for messages to delete\n- {bulkmin} deletable messages required for Bulk Delete Messages")
         else:
-            self.config.set_bulk_delete_min(bulkmin)
-            await interaction.response.send_message(f"Server-wide settings have been updated:\n- Number of deletable messages required for Bulk Delete Messages: {bulkmin}")
+            updates = ""
+            if scandelay is not None:
+                self.config.set_scan_interval(scandelay)
+                updates += f"\n- {scandelay} minutes between scans for messages to delete"
+            if bulkmin is not None:
+                self.config.set_bulk_delete_min(bulkmin)
+                updates += f"\n- {bulkmin} deletable messages required for Bulk Delete Messages"
+            await interaction.response.send_message(f"Server-wide settings have been updated:{updates}")
 
     async def on_error(self, interaction: discord.Interaction, error: app_commands.AppCommandError) -> None:
         if isinstance(error, app_commands.MissingAnyRole):
