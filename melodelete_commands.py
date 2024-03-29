@@ -86,6 +86,20 @@ class AutodeleteCommands(app_commands.Group):
             else:
                 await interaction.response.send_message("The command completed successfully.", ephemeral=True)
 
+    @app_commands.command()
+    @app_commands.guild_only()
+    @app_commands.describe(bulkmin="Number of messages to require for Bulk Delete Messages (shows up in the Audit Log)")
+    @allowed_roles_only()
+    async def serverconfig(self, interaction: discord.Interaction,
+                     bulkmin: Optional[app_commands.Range[int, 2]]) -> None:
+        """View or set the server's auto-delete settings"""
+        if bulkmin is None:
+            bulkmin = self.config.get_bulk_delete_min()
+            await interaction.response.send_message(f"Current server-wide settings:\n- Number of deletable messages required for Bulk Delete Messages: {bulkmin}")
+        else:
+            self.config.set_bulk_delete_min(bulkmin)
+            await interaction.response.send_message(f"Server-wide settings have been updated:\n- Number of deletable messages required for Bulk Delete Messages: {bulkmin}")
+
     async def on_error(self, interaction: discord.Interaction, error: app_commands.AppCommandError) -> None:
         if isinstance(error, app_commands.MissingAnyRole):
             await interaction.response.send_message("You don't have permission to use this command.", ephemeral=True)

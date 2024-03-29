@@ -132,3 +132,5 @@ class Config:
         """Sets the minimum number of deletable messages in a single channel
            for the bot to use Bulk Delete Messages to delete them all."""
         self.config["bulk_delete_min"] = bulk_delete_min
+
+        self.save_config()
