@@ -12,10 +12,10 @@ pip3 install discord
 You will then need an application ID and bot token, which you can obtain on the [Discord Developer Portal](https://discord.com/developers/applications) after creating an application and generating a bot token. Make sure to copy the bot token somewhere, as it is only ever displayed once, and you must reset the token, triggering two-factor authentication, to get another.
 
 You may then add the bot to the server you wish to use it on by visiting a URL like this in a browser:
-`https://discord.com/api/oauth2/authorize?client_id=APPLICATION_ID_GOES_HERE&permissions=76800&scope=bot`
+`https://discord.com/api/oauth2/authorize?client_id=APPLICATION_ID_GOES_HERE&permissions=2147560448&scope=bot`
 where `APPLICATION_ID_GOES_HERE` is the application ID shown for the bot under Settings/General Information.
 
-This gives the bot the following permissions on the server you select in the browser: Read Messages/View Channels, Read Message History, Send Messages, Manage Messages.
+This gives the bot the following permissions on the server you select in the browser: Read Messages/View Channels, Read Message History, Send Messages, Manage Messages, Use Slash Commands.
 
 ## Initial run and configuration
 
