@@ -143,13 +143,13 @@ class Melodelete(commands.Bot):
                 await asyncio.sleep(self.config.get_rate_limit())
                 await channel.delete_messages(messages)
             except discord.NotFound as e:  # only if it resolves to a single message
-                logger.info("Message ID {messages[0].id} in #{channel.name} (ID: {channel.id}) was deleted since scanning")
+                logger.info(f"Message ID {messages[0].id} in #{channel.name} (ID: {channel.id}) was deleted since scanning")
             except discord.ClientException as e:
-                logger.exception("Failed to bulk delete {len(messages)} messages in #{channel.name} (ID: {channel.id}) due to the API considering the count to be too large; falling back to individual deletions", exc_info=e)
+                logger.exception(f"Failed to bulk delete {len(messages)} messages in #{channel.name} (ID: {channel.id}) due to the API considering the count to be too large; falling back to individual deletions", exc_info=e)
                 for message in messages:
                     await self.delete_message(message)
             except discord.HTTPException as e:
-                logger.info("Failed to bulk delete {len(messages)} messages in #{channel.name} (ID: {channel.id}); falling back to individual deletions", exc_info=e)
+                logger.info(f"Failed to bulk delete {len(messages)} messages in #{channel.name} (ID: {channel.id}); falling back to individual deletions", exc_info=e)
                 for message in messages:
                     await self.delete_message(message)
 
@@ -163,9 +163,9 @@ class Melodelete(commands.Bot):
             await asyncio.sleep(self.config.get_rate_limit())
             await message.delete()
         except discord.NotFound as e:
-            logger.info("Message ID {message.id} in #{message.channel.name} (ID: {message.channel.id}) was deleted since scanning")
+            logger.info(f"Message ID {message.id} in #{message.channel.name} (ID: {message.channel.id}) was deleted since scanning")
         except discord.HTTPException as e:
-            logger.exception("Failed to delete message ID {message.id} in #{message.channel.name} (ID: {message.channel.id})", exc_info=e)
+            logger.exception(f"Failed to delete message ID {message.id} in #{message.channel.name} (ID: {message.channel.id})", exc_info=e)
 
     async def delete_channel_deletable_messages(self, messages: Sequence[discord.Message]) -> None:
         """Deletes the given sequence of messages, which must all be part of the
