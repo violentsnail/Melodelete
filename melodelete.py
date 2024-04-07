@@ -87,14 +87,14 @@ class Melodelete(commands.Bot):
 
     async def on_raw_message_delete(self, payload: discord.RawMessageDeleteEvent) -> None:
         channels = self.config.get_channels()
-        channel = self.get_channel(payload.channel_id) or self.fetch_channel(payload.channel_id)
+        channel = self.get_channel(payload.channel_id) or await self.fetch_channel(payload.channel_id)
 
         if channel and payload.channel_id in [channel["id"] for channel in channels]:
             logger.info(f"Message deleted in #{channel.name} (ID: {payload.channel_id})")
 
     async def on_raw_bulk_message_delete(self, payload: discord.RawBulkMessageDeleteEvent) -> None:
         channels = self.config.get_channels()
-        channel = self.get_channel(payload.channel_id) or self.fetch_channel(payload.channel_id)
+        channel = self.get_channel(payload.channel_id) or await self.fetch_channel(payload.channel_id)
 
         if channel and payload.channel_id in [channel["id"] for channel in channels]:
             logger.info(f"{len(payload.message_ids)} messages deleted in #{channel.name} (ID: {payload.channel_id})")
@@ -207,7 +207,7 @@ class Melodelete(commands.Bot):
             channel_id = channel_config["id"]
             time_threshold = channel_config.get("time_threshold", None)
             max_messages = channel_config.get("max_messages", None)
-            channel = self.get_channel(channel_id) or self.fetch_channel(channel_id)
+            channel = self.get_channel(channel_id) or await self.fetch_channel(channel_id)
             if channel:
                 try:
                     deletable_messages = await self.get_channel_deletable_messages(channel, time_threshold=time_threshold, max_messages=max_messages)
