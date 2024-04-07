@@ -203,11 +203,16 @@ class Melodelete(commands.Bot):
 
         to_delete: list[Tuple[discord.Channel, Sequence[discord.Message]]] = []
 
-        for channel_config in self.config.get_channels():
+        # Copy the list from self.config so that we may delete from it with
+        # clear_channel if a channel is no longer on the server.
+        for channel_config in list(self.config.get_channels()):
             channel_id = channel_config["id"]
             time_threshold = channel_config.get("time_threshold", None)
             max_messages = channel_config.get("max_messages", None)
-            channel = self.get_channel(channel_id) or await self.fetch_channel(channel_id)
+            try:
+                channel = self.get_channel(channel_id) or await self.fetch_channel(channel_id)
+            except discord.NotFound:
+                channel = None
             if channel:
                 try:
                     deletable_messages = await self.get_channel_deletable_messages(channel, time_threshold=time_threshold, max_messages=max_messages)
@@ -216,7 +221,8 @@ class Melodelete(commands.Bot):
                 except Exception as e:
                     logger.exception(f"Failed to scan for messages to delete in #{channel.name} (ID: {channel_id})", exc_info=e)
             else:
-                logger.error(f"Channel not found: {channel_id}")
+                logger.error(f"Channel not found: {channel_id}; removing from auto-delete")
+                self.config.clear_channel(channel_id)
 
         for channel, deletable_messages in to_delete:
             try:
