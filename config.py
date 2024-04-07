@@ -114,6 +114,8 @@ class Config:
 
         channels = [channel for channel in channels if channel["id"] != channel_id]
 
+        self.config["channels"] = channels
+
         self.save_config()
 
     def get_rate_limit(self) -> float:
