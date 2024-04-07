@@ -70,9 +70,33 @@ class Config:
         """Retrieves the ID of the server on which autodelete will run."""
         return int(self.config["server_id"])
 
-    def get_allowed_role_names(self) -> Sequence[str]:
-        """Retrieves the list of names of roles allowed to issue bot commands."""
+    def get_allowed_roles(self) -> Sequence[Union[int, str]]:
+        """Retrieves the list of role names and IDs allowed to issue bot
+           commands."""
         return self.config["allowed_roles"]
+
+    def is_role_allowed(self, role: Union[int, str]) -> bool:
+        """Determines whether a role ID or name is allowed to issue bot
+           commands."""
+        return role in self.get_allowed_roles()
+
+    def add_allowed_role(self, role: Union[int, str]) -> None:
+        """Adds a role ID or name to the list of roles allowed to issue bot
+           commands."""
+        if role not in self.get_allowed_roles():
+            self.config["allowed_roles"].append(role)
+
+            self.save_config()
+
+    def clear_allowed_role(self, role: Union[int, str]) -> None:
+        """Removes a role ID or name from the list of roles allowed to issue bot
+           commands."""
+        try:
+            del self.config["allowed_roles"][self.config["allowed_roles"].index(role)]
+
+            self.save_config()
+        except ValueError:
+            pass
 
     def set_channel(self, channel_id: int, time_threshold: Optional[int], max_messages: Optional[int]) -> None:
         """Sets the autodelete configuration for a channel to the given values.

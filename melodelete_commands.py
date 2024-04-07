@@ -5,9 +5,16 @@ from typing import Optional
 
 def allowed_roles_only():
     def predicate(interaction: discord.Interaction):
-        user_roles = [role.name for role in interaction.user.roles]
-        access_roles = interaction.command.parent.config.get_allowed_role_names()
-        if not any(role in user_roles for role in access_roles):
+        if interaction.guild is not None and interaction.guild.owner_id == interaction.user.id:
+            return True
+        user_role_names = [role.name for role in interaction.user.roles]
+        user_role_ids = [role.id for role in interaction.user.roles]
+        access_roles = interaction.command.parent.config.get_allowed_roles()
+        if not any(
+            isinstance(access_role, int) and access_role in user_role_ids or
+            isinstance(access_role, str) and access_role in user_role_names
+            for access_role in access_roles
+        ):
             raise app_commands.MissingAnyRole(access_roles)
         return True
     return app_commands.check(predicate)
@@ -107,6 +114,38 @@ class AutodeleteCommands(app_commands.Group):
                 self.config.set_bulk_delete_min(bulkmin)
                 updates += f"\n- {bulkmin} deletable messages required for Bulk Delete Messages"
             await interaction.response.send_message(f"Server-wide settings have been updated:{updates}")
+
+    @app_commands.command()
+    @app_commands.guild_only()
+    @allowed_roles_only()
+    async def rolelist(self, interaction: discord.Interaction) -> None:
+        """View the list of roles that grant access to auto-delete commands on the server"""
+        roles = self.config.get_allowed_roles()
+        if len(roles):
+            roles_str = "".join(["\n- " + (f"<@&{role}>" if isinstance(role, int) else role) for role in roles])
+            await interaction.response.send_message(f"Roles allowed to issue /{self.name} commands on this server:{roles_str}", ephemeral=True)
+        else:
+            await interaction.response.send_message(f"Only the server owner is allowed to issue /{self.name} commands on this server.", ephemeral=True)
+
+    @app_commands.command()
+    @app_commands.guild_only()
+    @app_commands.describe(role="Role to grant access to")
+    @allowed_roles_only()
+    async def rolegrant(self, interaction: discord.Interaction,
+                        role: discord.Role) -> None:
+        """Grant a role access to auto-delete commands on the server"""
+        self.config.add_allowed_role(role.id)
+        await interaction.response.send_message(f"Granted access to /{self.name} commands on this server to {role.mention}.", silent=True)
+
+    @app_commands.command()
+    @app_commands.guild_only()
+    @app_commands.describe(role="Role to deny access from")
+    @allowed_roles_only()
+    async def roledeny(self, interaction: discord.Interaction,
+                        role: discord.Role) -> None:
+        """Deny a role access to auto-delete commands on the server"""
+        self.config.clear_allowed_role(role.id)
+        await interaction.response.send_message(f"Denied access to /{self.name} commands on this server from {role.mention}.", silent=True)
 
     async def on_error(self, interaction: discord.Interaction, error: app_commands.AppCommandError) -> None:
         if isinstance(error, app_commands.MissingAnyRole):
