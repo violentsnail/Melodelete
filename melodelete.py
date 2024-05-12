@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 from discord import app_commands
 import asyncio
+import time
 import aiohttp
 import os
 from datetime import datetime, timedelta, timezone
@@ -243,4 +244,14 @@ if __name__ == '__main__':
                         ])
 
     # Run the bot
-    Melodelete().run(log_handler=None)
+    while True:
+        try:
+            Melodelete().run(log_handler=None)
+        # Sometimes a WebSocketError is raised whenever a fragmented control
+        # frame arrives, which may simply be a symptom of packet loss. This,
+        # however, causes run() to return. We need to restart the bot.
+        except aiohttp.http_websocket.WebSocketError as e:
+            logger.exception("Transport error; reconnecting in 60 seconds", e)
+            time.sleep(60)
+        else:  # no WebSocketError has been raised; allow KeyboardInterrupt etc.
+            break
