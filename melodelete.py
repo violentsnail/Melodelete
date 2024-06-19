@@ -82,7 +82,10 @@ class Melodelete(commands.Bot):
 
         while True:
             logger.info("-- New scan --")
-            await self.delete_old_messages()
+            try:
+                await self.delete_old_messages()
+            except Exception as e:
+                logger.exception("Uncaught exception in main loop iteration; waiting until the next one", e)
             await asyncio.sleep(max(self.config.get_scan_interval(), 2) * 60)
 
     async def on_raw_message_delete(self, payload: discord.RawMessageDeleteEvent) -> None:
