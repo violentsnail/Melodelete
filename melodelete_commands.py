@@ -65,12 +65,11 @@ class AutodeleteCommands(app_commands.Group):
             channel = interaction.channel
 
         if hours is None and messages is None:
-            for channel_config in self.config.get_channels():
-                if channel.id == channel_config["id"]:
-                    time_threshold_hours = f"{channel_config['time_threshold'] // 60} hours" if "time_threshold" in channel_config and channel_config["time_threshold"] is not None else "Not set"
-                    messages = channel_config["max_messages"] if "max_messages" in channel_config and channel_config["max_messages"] is not None else "Not set"
-                    await interaction.response.send_message(f"Current settings for {channel.mention}:\n- Time threshold: {time_threshold_hours}\n- Max messages: {messages}")
-                    break
+            channel_config = self.config.get_channel_config(channel.id)
+            if channel_config is not None:
+                time_threshold_hours = f"{channel_config['time_threshold'] // 60} hours" if "time_threshold" in channel_config and channel_config["time_threshold"] is not None else "Not set"
+                messages = channel_config["max_messages"] if "max_messages" in channel_config and channel_config["max_messages"] is not None else "Not set"
+                await interaction.response.send_message(f"Current settings for {channel.mention}:\n- Time threshold: {time_threshold_hours}\n- Max messages: {messages}")
             else:  # channel not found
                 await interaction.response.send_message(f"{channel.mention} is not configured for auto-delete.")
         else:

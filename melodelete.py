@@ -90,17 +90,15 @@ class Melodelete(commands.Bot):
             await asyncio.sleep(max(self.config.get_scan_interval(), 2) * 60)
 
     async def on_raw_message_delete(self, payload: discord.RawMessageDeleteEvent) -> None:
-        channels = self.config.get_channels()
         channel = self.get_channel(payload.channel_id) or await self.fetch_channel(payload.channel_id)
 
-        if channel and payload.channel_id in [channel["id"] for channel in channels]:
+        if channel and self.config.is_channel_set(payload.channel_id):
             logger.info(f"Message deleted in #{channel.name} (ID: {payload.channel_id})")
 
     async def on_raw_bulk_message_delete(self, payload: discord.RawBulkMessageDeleteEvent) -> None:
-        channels = self.config.get_channels()
         channel = self.get_channel(payload.channel_id) or await self.fetch_channel(payload.channel_id)
 
-        if channel and payload.channel_id in [channel["id"] for channel in channels]:
+        if channel and self.config.is_channel_set(payload.channel_id):
             logger.info(f"{len(payload.message_ids)} messages deleted in #{channel.name} (ID: {payload.channel_id})")
 
     async def get_channel_deletable_messages(self, channel, time_threshold: Optional[int], max_messages: Optional[int]) -> Sequence[discord.Message]:
@@ -209,8 +207,8 @@ class Melodelete(commands.Bot):
 
         # Copy the list from self.config so that we may delete from it with
         # clear_channel if a channel is no longer on the server.
-        for channel_config in list(self.config.get_channels()):
-            channel_id = channel_config["id"]
+        for channel_id in list(self.config.get_channels()):
+            channel_config = self.config.get_channel_config(channel_id)
             time_threshold = channel_config.get("time_threshold", None)
             max_messages = channel_config.get("max_messages", None)
             try:

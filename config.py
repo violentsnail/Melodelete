@@ -3,7 +3,7 @@ import os
 from datetime import datetime, timedelta, timezone
 import logging
 
-from typing import Sequence, Mapping, Optional, Union
+from typing import Any, Sequence, Mapping, Optional, Union
 
 logger = logging.getLogger("melodelete.config")
 
@@ -23,6 +23,28 @@ def apply_defaults(config_dict: Mapping) -> Mapping:
     if "allowed_roles" not in config_dict:
         config_dict["allowed_roles"] = []
     return config_dict
+
+def migrate_channel_settings(config_dict: Mapping) -> Mapping:
+    """Rewrites the configuration dictionary to have a dictionary of channels,
+       mapping channel IDs to their associated settings, rather than a list if
+       it is one."""
+    if "channels" in config_dict:
+        channels_orig = config_dict["channels"]
+        if is_mapping(config_dict["channels"]):
+            # Make sure channel IDs are ints. JSON stores them as strings.
+            # TODO: Remove this code for database config.
+            channels_new = {int(k): v for k, v in channels_orig.items()}
+        else:
+            # Map each {id: int, others: their values} dict in the input list
+            # to id: {others: their values} within the output dict.
+            channels_new = {int(element["id"]): {k: v for k, v in element.items() if k != "id"} for element in channels_orig}
+        config_dict["channels"] = channels_new
+    return config_dict
+
+def is_mapping(obj) -> bool:
+    """Determines whether the given object is a mapping-like object."""
+    # https://stackoverflow.com/a/21970190
+    return hasattr(obj, 'keys') and hasattr(type(obj), '__getitem__')
 
 class Config:
     def __init__(self) -> None:
@@ -50,17 +72,28 @@ class Config:
             logger.critical("Please update the token, server ID, and other settings in config.json before running the bot.")
             exit()
 
-        return apply_defaults(config)
+        config = migrate_channel_settings(config)
+        config = apply_defaults(config)
+        return config
 
     def save_config(self) -> None:
         """Saves the configuration to file."""
         with open(self.config_file, "w") as f:
             json.dump(self.config, f, indent=4)
 
-    def get_channels(self) -> Sequence[Mapping[str, Optional[Union[str, int]]]]:
+    def get_channels(self) -> Sequence[int]:
         """Retrieves the list of channels configured for autodelete on the
            server. See also: get_server_id()."""
-        return self.config["channels"]
+        return self.config["channels"].keys()
+
+    def get_channel_config(self, channel_id: int) -> Mapping[str, Any]:
+        """Retrieves the autodelete configuration for a channel given its ID,
+           or None if the channel is not configured for autodelete."""
+        return self.config["channels"].get(channel_id)
+
+    def is_channel_set(self, channel_id: int) -> bool:
+        """Determines whether the given channel is configured for autodelete."""
+        return channel_id in self.config["channels"]
 
     def get_token(self) -> str:
         """Retrieves the bot token from the configuration."""
@@ -107,17 +140,10 @@ class Config:
                the given channel.
              max_messages: The number of recent messages to preserve in the
                given channel."""
-        channels = self.get_channels()
-
-        for channel_config in channels:
-            if channel_id == channel_config["id"]:
-                channel = channel_config
-                break
-        else:  # no channel was found
-            channel = {
-                "id": channel_id
-            }
-            channels.append(channel)
+        channel = self.get_channel_config(channel_id)
+        if channel is None:
+            channel = {}
+            self.config["channels"][channel_id] = channel
 
         channel.pop("time_threshold", None)  # prepare for resetting
         channel.pop("max_messages", None)    # these two attributes
@@ -134,13 +160,12 @@ class Config:
            In:
              channel_id: The ID of the channel whose configuration is to be
                removed."""
-        channels = self.get_channels()
-
-        channels = [channel for channel in channels if channel["id"] != channel_id]
-
-        self.config["channels"] = channels
-
-        self.save_config()
+        try:
+            del self.config["channels"][channel_id]
+        except KeyError:
+            pass
+        else:
+            self.save_config()
 
     def get_rate_limit(self) -> float:
         """Retrieves the current rate limit in seconds."""
