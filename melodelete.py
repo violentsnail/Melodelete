@@ -86,7 +86,7 @@ class Melodelete(commands.Bot):
             try:
                 await self.delete_old_messages()
             except Exception as e:
-                logger.exception("Uncaught exception in main loop iteration; waiting until the next one", e)
+                logger.exception("Uncaught exception in main loop iteration; waiting until the next one", exc_info=e)
             await asyncio.sleep(max(self.config.get_scan_interval(), 2) * 60)
 
     async def on_raw_message_delete(self, payload: discord.RawMessageDeleteEvent) -> None:
@@ -252,7 +252,7 @@ if __name__ == '__main__':
         # frame arrives, which may simply be a symptom of packet loss. This,
         # however, causes run() to return. We need to restart the bot.
         except aiohttp.http_websocket.WebSocketError as e:
-            logger.exception("Transport error; reconnecting in 60 seconds", e)
+            logger.exception("Transport error; reconnecting in 60 seconds", exc_info=e)
             time.sleep(60)
         else:  # no WebSocketError has been raised; allow KeyboardInterrupt etc.
             break
