@@ -29,9 +29,62 @@ It will create a skeleton `config.json` file for you to fill with your bot token
 * The bot token is obtained during the process to create the Discord application. It is only displayed once after it is generated.
 * To get the ID of a server, go into your Discord User Settings, then, under App Settings/Advanced, enable Developer Mode. Exit User Settings, then, on the server in question, right-click (Desktop or Web) or tap (Mobile) the server's header, then select Copy Server ID.
 
-## Running
+## Running Interactively
 
 In the correct directory, run Melodelete on the command line:
 ```
 python3 melodelete.py
+```
+
+## Running as a service
+To have this run after logging out, you need to set this up to run as a service. For simplicity here I assume an EC2 instance where the default username is ec2-user
+
+1. Create a file somewhere on your system and label it as `melodelete.service`
+2. Open the file and paste the following
+```
+[Unit]
+Description=Melodelete service
+After=network.target
+
+[Service]
+Type=idle
+Restart=on-failure
+User=ec2-user
+ExecStart=/bin/bash -c 'cd <path to melodelete root> && python3 melodelete.py'
+
+[Install]
+WantedBy=multi-user.target
+```
+3. Run the following commands from the melodelete root
+```
+sudo cp melodelete.service /lib/systemd/system/
+cd /lib/systemd/system/
+sudo chmod 644 /lib/systemd/system/melodelete.service
+sudo systemctl daemon-reload
+sudo systemctl enable melodelete.service
+sudo systemctl start melodelete.service
+sudo systemctl start melodelete
+```
+
+
+
+Other commands you can use with this
+```
+# stop a service
+sudo systemctl stop melodelete.service
+
+# restart a service
+sudo systemctl restart melodelete.service
+
+# reload a service
+sudo systemctl reload melodelete.service
+
+# enable a service
+sudo systemctl enable melodelete.service
+
+# disable a service
+sudo systemctl disable melodelete.service
+
+# get the status log of a service
+systemctl status melodelete.service
 ```
